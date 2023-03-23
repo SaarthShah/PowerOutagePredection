@@ -151,9 +151,25 @@ Below let's make a quick plot to plot the distribution of the F1 score on the te
 
 <iframe src='Plots/baselinef1dist.html' width=800 height=320 frameBorder=0></iframe>
 
-Based on the distribution of the model above, we can see that the f-1 score ranges anyhere from 0.63 to 0.76 with the median F-1 score of 0.69 which shows that the model performs decently on the test split considering the variability and structure of the power outage dataset. However, as we have not tuned the model with it's hyperparameters we can see that it is overfitting to the training dataset. This is evident by looking at the massive f-1 value gap for the training and test split. We belive that the model can certainly be improved with more selected feature engineering and proper hyperparameter tuning 🎛️.
+Based on the distribution of the model above, we can see that the f-1 score ranges anyhere from 0.63 to 0.76 with the median F-1 score of 0.69 which shows that the model performs decently on the test split considering the variability and structure of the power outage dataset. However, as we have not tuned the model with it's hyperparameters we can see that it is overfitting to the training dataset. This is evident by looking at the massive f-1 value gap for the training and test split. It is making a lot of False Positive and False Negative predections except for columns 3 and 5, which could potentially be the more popular cause classes. We belive that the model can certainly be improved with more selected feature engineering and proper hyperparameter tuning 🎛️.
 
-## **Assessment of Missingness**
+## **Final Model**
+
+To build our enchanced classifier, we will train the model on the following additional features:
+<ul>
+    <li> <b>ANOMALY.LEVEL (Qualitative Ordinal)</b>: This column contains more detailed information about the oceanic El Nino / La Nina index. The CLIMATE.CATEGORY feature has essentially been engineered by ordinalizing the data from this column. We can try and see if using a column with more detailed information can help improve our model's performance.</li>
+    <li> <b>DAY_OF_WEEK (Quantitative Discrete)</b>: The day of the week when the outage occurs can affect the CAUSE.CATEGORY because causes may be more likely on some days than others. For instance, system operability disruptions may be more common over the weekends than weekdays because of lazier supervision.</li>
+    <li> <b>TIME_OF_DAY (Quantitative Continuous)</b>: The time of the day may also correlate with the CAUSE.CATEGORY because certain times of the day may experience lower consumption of power. For instance, power consumption is generally lower during the night because most businesses are closed.</li>
+    <li> <b>TOTAL.PRICE (Quantitative Continuous)</b>: If prices are high in a particular state, there will likely be some unrest from the general public. Two of the CAUSE.CATEGORYs are 'public appeal' and 'intentional attack,' which could be a likely factors in states with higher electricity prices. Furthermore, prices are high most likely because of high demand, so high demand for power may result in outages as well.</li>
+    <li> <b>TOTAL.CUSTOMERS (Quantitative Discrete)</b>: More customers in a state may increase the likelihood of certain outages. For instance, the number of customers may be correlated with the probability of seeing an 'intentional attack.'</li>
+    <li> <b>PCT_LAND (Quantitative Continuous)</b>: The state's land area normalized by the total area of the US can provide us with a sense of vast the state. The vastness of the state may increase its likelihood of experiencing outages.</li>
+    <li> <b>PCT_WATER_INLAND (Quantitative Continuous)</b>: Inland water area in the state normalized by the total inland water are in the US may provide the model with more information about the state's general geographic conditions. Geographical factors could play a major role in predicting outage cause.</li>
+    <li> <b>AREAPCT_UC (Quantitative Continuous)</b>: Area encapsulated by urban clusters normalized by the total area of the state may provide the model with an idea of how much of a state is urbanized. Urban areas tend to draw more power than their counterparts, so certain outages may be more frequent in states with high values for this feature</li>
+</ul>
+
+Below is the different cause categories in our data for reference:
+
+<img src='Plots/cause_dist.png'>
 
 ### **NMAR Analysis**
 
