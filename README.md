@@ -35,9 +35,7 @@ For this study, we will focus on:
 <ul>
     <li>US State where the Outage is Happening</li>
     <li>Climatic Region of the State where the outage is Occuring</li>
-    <li>Month when the Outage is Happening</li>
-    <li>Day of the Week when the Outage is Happening</li>
-    <li>Time of the Day when the Outage is Happening</li>
+    <li>Time stamp of when the Outage started</li>
     <li>Total Price of Electricity in the Area where the Outage is Happening</li>
     <li>Percentage of Land in the Area where the Outage is Happening</li>
     <li>Total Number of Customers in the Area where the Outage is Happening</li>
