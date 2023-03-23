@@ -2,9 +2,11 @@ Report by Saarth Shah and Saathvik Dirisala
 
 ## **Introduction**
 
+### Introduction and Prediction Question Identification
+
 For this study, we will focus on:
 
-<b>People are extremely dependent on power to get on with their daily lives. In this study, we want to predict what might cause a power outage based on information that would intuitively be available to a person "during" an outage. Knowing what might have caused an outage have some of the following benefits:</b>
+<b>People are extremely dependent on power to get on with their daily lives. In this study, we want to predict what might cause a power outage based on information that would intuitively be available to a person "during" or at the "beginning" of an outage. Knowing what might have caused an outage have some of the following benefits:</b>
 
 <ul>
 
@@ -33,7 +35,7 @@ For this study, we will focus on:
 </ul>
 
 
-In this notebook we will be working with the <a href="https://engineering.purdue.edu/LASCI/research-data/outages/outagerisks">Power Outage</a> dataset to potentially find patterns that might be affecting how long a power outage lasts. Our dataset gives us access to the regional details of the outage, the prices of electricity, outage cause, people affected, etc. This information should be more than enough for us to find and discover potential patterns that might be affecting how long these durations last.
+In this notebook we will be working with the <a href="https://engineering.purdue.edu/LASCI/research-data/outages/outagerisks">Power Outage</a> dataset to potentially find patterns that might be affecting how long a power outage lasts. Our dataset gives us access to the regional details of the outage, the prices of electricity, outage cause, people affected, etc. The relevant columns in our dataset mimic the information we would potenitally have at the onset of an outage.
 
 
 Here's a quick description of the relevant columns in our dataset:
