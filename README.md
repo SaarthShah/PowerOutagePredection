@@ -151,6 +151,8 @@ Below let's make a quick plot to plot the distribution of the F1 score on the te
 
 <iframe src='Plots/baselinef1dist.html' width=800 height=320 frameBorder=0></iframe>
 
+Based on the distribution of the model above, we can see that the f-1 score ranges anyhere from 0.63 to 0.76 with the median F-1 score of 0.69 which shows that the model performs decently on the test split considering the variability and structure of the power outage dataset. However, as we have not tuned the model with it's hyperparameters we can see that it is overfitting to the training dataset. This is evident by looking at the massive f-1 value gap for the training and test split. We belive that the model can certainly be improved with more selected feature engineering and proper hyperparameter tuning 🎛️.
+
 ## **Assessment of Missingness**
 
 ### **NMAR Analysis**
