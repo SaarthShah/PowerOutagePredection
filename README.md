@@ -91,9 +91,9 @@ Our next step was to clean the dataset in order to make the rows and columns usa
 
 After thoroughly cleaning the dataset, here's a preview of our cleaned dataframe for power outages:
 
-<iframe src="Plots/cleaned_df.html" width=800 height=1200 frameBorder=0></iframe>
+<iframe src="Plots/cleaned_df.html" width=800 height=320 frameBorder=0></iframe>
 
-### **Univariate Analysis**
+## **Baseline Model**
 
 **Distribution of Power Outage Durations**
 
