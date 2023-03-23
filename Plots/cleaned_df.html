@@ -1,330 +1,355 @@
-<table border="1" class="dataframe">
+<style type="text/css">
+  #T_cb8dd {
+    margin: 0;
+    font-family: "Helvetica", "Arial", sans-serif;
+    border-collapse: collapse;
+    border: none;
+  }
+
+  #T_cb8dd tbody tr:nth-child(even) {
+    background-color: #fff;
+  }
+
+  #T_cb8dd tbody tr:nth-child(odd) {
+    background-color: #eee;
+  }
+
+  #T_cb8dd td {
+    padding: .5em;
+  }
+
+  #T_cb8dd th {
+    font-size: 100%;
+    text-align: center;
+  }
+</style>
+<table id="T_cb8dd">
   <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>YEAR</th>
-      <th>MONTH</th>
-      <th>U.S._STATE</th>
-      <th>POSTAL.CODE</th>
-      <th>NERC.REGION</th>
-      <th>CLIMATE.REGION</th>
-      <th>ANOMALY.LEVEL</th>
-      <th>CLIMATE.CATEGORY</th>
-      <th>CAUSE.CATEGORY</th>
-      <th>CAUSE.CATEGORY.DETAIL</th>
-      <th>HURRICANE.NAMES</th>
-      <th>RES.PRICE</th>
-      <th>COM.PRICE</th>
-      <th>IND.PRICE</th>
-      <th>TOTAL.PRICE</th>
-      <th>RES.SALES</th>
-      <th>COM.SALES</th>
-      <th>IND.SALES</th>
-      <th>TOTAL.SALES</th>
-      <th>RES.PERCEN</th>
-      <th>COM.PERCEN</th>
-      <th>IND.PERCEN</th>
-      <th>RES.CUSTOMERS</th>
-      <th>COM.CUSTOMERS</th>
-      <th>IND.CUSTOMERS</th>
-      <th>TOTAL.CUSTOMERS</th>
-      <th>RES.CUST.PCT</th>
-      <th>COM.CUST.PCT</th>
-      <th>IND.CUST.PCT</th>
-      <th>PC.REALGSP.STATE</th>
-      <th>PC.REALGSP.USA</th>
-      <th>PC.REALGSP.REL</th>
-      <th>PC.REALGSP.CHANGE</th>
-      <th>UTIL.REALGSP</th>
-      <th>TOTAL.REALGSP</th>
-      <th>UTIL.CONTRI</th>
-      <th>PI.UTIL.OFUSA</th>
-      <th>POPULATION</th>
-      <th>POPPCT_URBAN</th>
-      <th>POPPCT_UC</th>
-      <th>POPDEN_URBAN</th>
-      <th>POPDEN_UC</th>
-      <th>POPDEN_RURAL</th>
-      <th>AREAPCT_URBAN</th>
-      <th>AREAPCT_UC</th>
-      <th>PCT_LAND</th>
-      <th>PCT_WATER_TOT</th>
-      <th>PCT_WATER_INLAND</th>
-      <th>OUTAGE.START</th>
-      <th>DAY_OF_WEEK</th>
-      <th>TIME_OF_DAY</th>
+    <tr>
+      <th class="blank level0">&nbsp;</th>
+      <th id="T_cb8dd_level0_col0" class="col_heading level0 col0">YEAR</th>
+      <th id="T_cb8dd_level0_col1" class="col_heading level0 col1">MONTH</th>
+      <th id="T_cb8dd_level0_col2" class="col_heading level0 col2">U.S._STATE</th>
+      <th id="T_cb8dd_level0_col3" class="col_heading level0 col3">POSTAL.CODE</th>
+      <th id="T_cb8dd_level0_col4" class="col_heading level0 col4">NERC.REGION</th>
+      <th id="T_cb8dd_level0_col5" class="col_heading level0 col5">CLIMATE.REGION</th>
+      <th id="T_cb8dd_level0_col6" class="col_heading level0 col6">ANOMALY.LEVEL</th>
+      <th id="T_cb8dd_level0_col7" class="col_heading level0 col7">CLIMATE.CATEGORY</th>
+      <th id="T_cb8dd_level0_col8" class="col_heading level0 col8">CAUSE.CATEGORY</th>
+      <th id="T_cb8dd_level0_col9" class="col_heading level0 col9">CAUSE.CATEGORY.DETAIL</th>
+      <th id="T_cb8dd_level0_col10" class="col_heading level0 col10">HURRICANE.NAMES</th>
+      <th id="T_cb8dd_level0_col11" class="col_heading level0 col11">RES.PRICE</th>
+      <th id="T_cb8dd_level0_col12" class="col_heading level0 col12">COM.PRICE</th>
+      <th id="T_cb8dd_level0_col13" class="col_heading level0 col13">IND.PRICE</th>
+      <th id="T_cb8dd_level0_col14" class="col_heading level0 col14">TOTAL.PRICE</th>
+      <th id="T_cb8dd_level0_col15" class="col_heading level0 col15">RES.SALES</th>
+      <th id="T_cb8dd_level0_col16" class="col_heading level0 col16">COM.SALES</th>
+      <th id="T_cb8dd_level0_col17" class="col_heading level0 col17">IND.SALES</th>
+      <th id="T_cb8dd_level0_col18" class="col_heading level0 col18">TOTAL.SALES</th>
+      <th id="T_cb8dd_level0_col19" class="col_heading level0 col19">RES.PERCEN</th>
+      <th id="T_cb8dd_level0_col20" class="col_heading level0 col20">COM.PERCEN</th>
+      <th id="T_cb8dd_level0_col21" class="col_heading level0 col21">IND.PERCEN</th>
+      <th id="T_cb8dd_level0_col22" class="col_heading level0 col22">RES.CUSTOMERS</th>
+      <th id="T_cb8dd_level0_col23" class="col_heading level0 col23">COM.CUSTOMERS</th>
+      <th id="T_cb8dd_level0_col24" class="col_heading level0 col24">IND.CUSTOMERS</th>
+      <th id="T_cb8dd_level0_col25" class="col_heading level0 col25">TOTAL.CUSTOMERS</th>
+      <th id="T_cb8dd_level0_col26" class="col_heading level0 col26">RES.CUST.PCT</th>
+      <th id="T_cb8dd_level0_col27" class="col_heading level0 col27">COM.CUST.PCT</th>
+      <th id="T_cb8dd_level0_col28" class="col_heading level0 col28">IND.CUST.PCT</th>
+      <th id="T_cb8dd_level0_col29" class="col_heading level0 col29">PC.REALGSP.STATE</th>
+      <th id="T_cb8dd_level0_col30" class="col_heading level0 col30">PC.REALGSP.USA</th>
+      <th id="T_cb8dd_level0_col31" class="col_heading level0 col31">PC.REALGSP.REL</th>
+      <th id="T_cb8dd_level0_col32" class="col_heading level0 col32">PC.REALGSP.CHANGE</th>
+      <th id="T_cb8dd_level0_col33" class="col_heading level0 col33">UTIL.REALGSP</th>
+      <th id="T_cb8dd_level0_col34" class="col_heading level0 col34">TOTAL.REALGSP</th>
+      <th id="T_cb8dd_level0_col35" class="col_heading level0 col35">UTIL.CONTRI</th>
+      <th id="T_cb8dd_level0_col36" class="col_heading level0 col36">PI.UTIL.OFUSA</th>
+      <th id="T_cb8dd_level0_col37" class="col_heading level0 col37">POPULATION</th>
+      <th id="T_cb8dd_level0_col38" class="col_heading level0 col38">POPPCT_URBAN</th>
+      <th id="T_cb8dd_level0_col39" class="col_heading level0 col39">POPPCT_UC</th>
+      <th id="T_cb8dd_level0_col40" class="col_heading level0 col40">POPDEN_URBAN</th>
+      <th id="T_cb8dd_level0_col41" class="col_heading level0 col41">POPDEN_UC</th>
+      <th id="T_cb8dd_level0_col42" class="col_heading level0 col42">POPDEN_RURAL</th>
+      <th id="T_cb8dd_level0_col43" class="col_heading level0 col43">AREAPCT_URBAN</th>
+      <th id="T_cb8dd_level0_col44" class="col_heading level0 col44">AREAPCT_UC</th>
+      <th id="T_cb8dd_level0_col45" class="col_heading level0 col45">PCT_LAND</th>
+      <th id="T_cb8dd_level0_col46" class="col_heading level0 col46">PCT_WATER_TOT</th>
+      <th id="T_cb8dd_level0_col47" class="col_heading level0 col47">PCT_WATER_INLAND</th>
+      <th id="T_cb8dd_level0_col48" class="col_heading level0 col48">OUTAGE.START</th>
+      <th id="T_cb8dd_level0_col49" class="col_heading level0 col49">DAY_OF_WEEK</th>
+      <th id="T_cb8dd_level0_col50" class="col_heading level0 col50">TIME_OF_DAY</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>2011</td>
-      <td>7.0</td>
-      <td>Minnesota</td>
-      <td>MN</td>
-      <td>MRO</td>
-      <td>East North Central</td>
-      <td>-0.3</td>
-      <td>normal</td>
-      <td>severe weather</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>11.60</td>
-      <td>9.18</td>
-      <td>6.81</td>
-      <td>9.28</td>
-      <td>2332915.0</td>
-      <td>2114774.0</td>
-      <td>2113291.0</td>
-      <td>6562520.0</td>
-      <td>35.549073</td>
-      <td>32.225029</td>
-      <td>32.202431</td>
-      <td>2308736</td>
-      <td>276286</td>
-      <td>10673</td>
-      <td>2595696</td>
-      <td>88.944776</td>
-      <td>10.644005</td>
-      <td>0.411181</td>
-      <td>51268</td>
-      <td>47586</td>
-      <td>1.077376</td>
-      <td>1.6</td>
-      <td>4802</td>
-      <td>274182</td>
-      <td>1.751391</td>
-      <td>2.2</td>
-      <td>5348119</td>
-      <td>73.27</td>
-      <td>15.28</td>
-      <td>2279.0</td>
-      <td>1700.5</td>
-      <td>18.2</td>
-      <td>2.14</td>
-      <td>0.6</td>
-      <td>91.592666</td>
-      <td>8.407334</td>
-      <td>5.478743</td>
-      <td>2011-07-01 17:00:00</td>
-      <td>4.0</td>
-      <td>61200.0</td>
+      <th id="T_cb8dd_level0_row0" class="row_heading level0 row0">0</th>
+      <td id="T_cb8dd_row0_col0" class="data row0 col0">2011</td>
+      <td id="T_cb8dd_row0_col1" class="data row0 col1">7.000000</td>
+      <td id="T_cb8dd_row0_col2" class="data row0 col2">Minnesota</td>
+      <td id="T_cb8dd_row0_col3" class="data row0 col3">MN</td>
+      <td id="T_cb8dd_row0_col4" class="data row0 col4">MRO</td>
+      <td id="T_cb8dd_row0_col5" class="data row0 col5">East North Central</td>
+      <td id="T_cb8dd_row0_col6" class="data row0 col6">-0.300000</td>
+      <td id="T_cb8dd_row0_col7" class="data row0 col7">normal</td>
+      <td id="T_cb8dd_row0_col8" class="data row0 col8">severe weather</td>
+      <td id="T_cb8dd_row0_col9" class="data row0 col9">nan</td>
+      <td id="T_cb8dd_row0_col10" class="data row0 col10">nan</td>
+      <td id="T_cb8dd_row0_col11" class="data row0 col11">11.600000</td>
+      <td id="T_cb8dd_row0_col12" class="data row0 col12">9.180000</td>
+      <td id="T_cb8dd_row0_col13" class="data row0 col13">6.810000</td>
+      <td id="T_cb8dd_row0_col14" class="data row0 col14">9.280000</td>
+      <td id="T_cb8dd_row0_col15" class="data row0 col15">2332915.000000</td>
+      <td id="T_cb8dd_row0_col16" class="data row0 col16">2114774.000000</td>
+      <td id="T_cb8dd_row0_col17" class="data row0 col17">2113291.000000</td>
+      <td id="T_cb8dd_row0_col18" class="data row0 col18">6562520.000000</td>
+      <td id="T_cb8dd_row0_col19" class="data row0 col19">35.549073</td>
+      <td id="T_cb8dd_row0_col20" class="data row0 col20">32.225029</td>
+      <td id="T_cb8dd_row0_col21" class="data row0 col21">32.202431</td>
+      <td id="T_cb8dd_row0_col22" class="data row0 col22">2308736</td>
+      <td id="T_cb8dd_row0_col23" class="data row0 col23">276286</td>
+      <td id="T_cb8dd_row0_col24" class="data row0 col24">10673</td>
+      <td id="T_cb8dd_row0_col25" class="data row0 col25">2595696</td>
+      <td id="T_cb8dd_row0_col26" class="data row0 col26">88.944776</td>
+      <td id="T_cb8dd_row0_col27" class="data row0 col27">10.644005</td>
+      <td id="T_cb8dd_row0_col28" class="data row0 col28">0.411181</td>
+      <td id="T_cb8dd_row0_col29" class="data row0 col29">51268</td>
+      <td id="T_cb8dd_row0_col30" class="data row0 col30">47586</td>
+      <td id="T_cb8dd_row0_col31" class="data row0 col31">1.077376</td>
+      <td id="T_cb8dd_row0_col32" class="data row0 col32">1.600000</td>
+      <td id="T_cb8dd_row0_col33" class="data row0 col33">4802</td>
+      <td id="T_cb8dd_row0_col34" class="data row0 col34">274182</td>
+      <td id="T_cb8dd_row0_col35" class="data row0 col35">1.751391</td>
+      <td id="T_cb8dd_row0_col36" class="data row0 col36">2.200000</td>
+      <td id="T_cb8dd_row0_col37" class="data row0 col37">5348119</td>
+      <td id="T_cb8dd_row0_col38" class="data row0 col38">73.270000</td>
+      <td id="T_cb8dd_row0_col39" class="data row0 col39">15.280000</td>
+      <td id="T_cb8dd_row0_col40" class="data row0 col40">2279.000000</td>
+      <td id="T_cb8dd_row0_col41" class="data row0 col41">1700.500000</td>
+      <td id="T_cb8dd_row0_col42" class="data row0 col42">18.200000</td>
+      <td id="T_cb8dd_row0_col43" class="data row0 col43">2.140000</td>
+      <td id="T_cb8dd_row0_col44" class="data row0 col44">0.600000</td>
+      <td id="T_cb8dd_row0_col45" class="data row0 col45">91.592666</td>
+      <td id="T_cb8dd_row0_col46" class="data row0 col46">8.407334</td>
+      <td id="T_cb8dd_row0_col47" class="data row0 col47">5.478743</td>
+      <td id="T_cb8dd_row0_col48" class="data row0 col48">2011-07-01 17:00:00</td>
+      <td id="T_cb8dd_row0_col49" class="data row0 col49">4.000000</td>
+      <td id="T_cb8dd_row0_col50" class="data row0 col50">61200.000000</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>2014</td>
-      <td>5.0</td>
-      <td>Minnesota</td>
-      <td>MN</td>
-      <td>MRO</td>
-      <td>East North Central</td>
-      <td>-0.1</td>
-      <td>normal</td>
-      <td>intentional attack</td>
-      <td>vandalism</td>
-      <td>NaN</td>
-      <td>12.12</td>
-      <td>9.71</td>
-      <td>6.49</td>
-      <td>9.28</td>
-      <td>1586986.0</td>
-      <td>1807756.0</td>
-      <td>1887927.0</td>
-      <td>5284231.0</td>
-      <td>30.032487</td>
-      <td>34.210389</td>
-      <td>35.727564</td>
-      <td>2345860</td>
-      <td>284978</td>
-      <td>9898</td>
-      <td>2640737</td>
-      <td>88.833534</td>
-      <td>10.791609</td>
-      <td>0.374820</td>
-      <td>53499</td>
-      <td>49091</td>
-      <td>1.089792</td>
-      <td>1.9</td>
-      <td>5226</td>
-      <td>291955</td>
-      <td>1.790002</td>
-      <td>2.2</td>
-      <td>5457125</td>
-      <td>73.27</td>
-      <td>15.28</td>
-      <td>2279.0</td>
-      <td>1700.5</td>
-      <td>18.2</td>
-      <td>2.14</td>
-      <td>0.6</td>
-      <td>91.592666</td>
-      <td>8.407334</td>
-      <td>5.478743</td>
-      <td>2014-05-11 18:38:00</td>
-      <td>6.0</td>
-      <td>67080.0</td>
+      <th id="T_cb8dd_level0_row1" class="row_heading level0 row1">1</th>
+      <td id="T_cb8dd_row1_col0" class="data row1 col0">2014</td>
+      <td id="T_cb8dd_row1_col1" class="data row1 col1">5.000000</td>
+      <td id="T_cb8dd_row1_col2" class="data row1 col2">Minnesota</td>
+      <td id="T_cb8dd_row1_col3" class="data row1 col3">MN</td>
+      <td id="T_cb8dd_row1_col4" class="data row1 col4">MRO</td>
+      <td id="T_cb8dd_row1_col5" class="data row1 col5">East North Central</td>
+      <td id="T_cb8dd_row1_col6" class="data row1 col6">-0.100000</td>
+      <td id="T_cb8dd_row1_col7" class="data row1 col7">normal</td>
+      <td id="T_cb8dd_row1_col8" class="data row1 col8">intentional attack</td>
+      <td id="T_cb8dd_row1_col9" class="data row1 col9">vandalism</td>
+      <td id="T_cb8dd_row1_col10" class="data row1 col10">nan</td>
+      <td id="T_cb8dd_row1_col11" class="data row1 col11">12.120000</td>
+      <td id="T_cb8dd_row1_col12" class="data row1 col12">9.710000</td>
+      <td id="T_cb8dd_row1_col13" class="data row1 col13">6.490000</td>
+      <td id="T_cb8dd_row1_col14" class="data row1 col14">9.280000</td>
+      <td id="T_cb8dd_row1_col15" class="data row1 col15">1586986.000000</td>
+      <td id="T_cb8dd_row1_col16" class="data row1 col16">1807756.000000</td>
+      <td id="T_cb8dd_row1_col17" class="data row1 col17">1887927.000000</td>
+      <td id="T_cb8dd_row1_col18" class="data row1 col18">5284231.000000</td>
+      <td id="T_cb8dd_row1_col19" class="data row1 col19">30.032487</td>
+      <td id="T_cb8dd_row1_col20" class="data row1 col20">34.210389</td>
+      <td id="T_cb8dd_row1_col21" class="data row1 col21">35.727564</td>
+      <td id="T_cb8dd_row1_col22" class="data row1 col22">2345860</td>
+      <td id="T_cb8dd_row1_col23" class="data row1 col23">284978</td>
+      <td id="T_cb8dd_row1_col24" class="data row1 col24">9898</td>
+      <td id="T_cb8dd_row1_col25" class="data row1 col25">2640737</td>
+      <td id="T_cb8dd_row1_col26" class="data row1 col26">88.833534</td>
+      <td id="T_cb8dd_row1_col27" class="data row1 col27">10.791609</td>
+      <td id="T_cb8dd_row1_col28" class="data row1 col28">0.374820</td>
+      <td id="T_cb8dd_row1_col29" class="data row1 col29">53499</td>
+      <td id="T_cb8dd_row1_col30" class="data row1 col30">49091</td>
+      <td id="T_cb8dd_row1_col31" class="data row1 col31">1.089792</td>
+      <td id="T_cb8dd_row1_col32" class="data row1 col32">1.900000</td>
+      <td id="T_cb8dd_row1_col33" class="data row1 col33">5226</td>
+      <td id="T_cb8dd_row1_col34" class="data row1 col34">291955</td>
+      <td id="T_cb8dd_row1_col35" class="data row1 col35">1.790002</td>
+      <td id="T_cb8dd_row1_col36" class="data row1 col36">2.200000</td>
+      <td id="T_cb8dd_row1_col37" class="data row1 col37">5457125</td>
+      <td id="T_cb8dd_row1_col38" class="data row1 col38">73.270000</td>
+      <td id="T_cb8dd_row1_col39" class="data row1 col39">15.280000</td>
+      <td id="T_cb8dd_row1_col40" class="data row1 col40">2279.000000</td>
+      <td id="T_cb8dd_row1_col41" class="data row1 col41">1700.500000</td>
+      <td id="T_cb8dd_row1_col42" class="data row1 col42">18.200000</td>
+      <td id="T_cb8dd_row1_col43" class="data row1 col43">2.140000</td>
+      <td id="T_cb8dd_row1_col44" class="data row1 col44">0.600000</td>
+      <td id="T_cb8dd_row1_col45" class="data row1 col45">91.592666</td>
+      <td id="T_cb8dd_row1_col46" class="data row1 col46">8.407334</td>
+      <td id="T_cb8dd_row1_col47" class="data row1 col47">5.478743</td>
+      <td id="T_cb8dd_row1_col48" class="data row1 col48">2014-05-11 18:38:00</td>
+      <td id="T_cb8dd_row1_col49" class="data row1 col49">6.000000</td>
+      <td id="T_cb8dd_row1_col50" class="data row1 col50">67080.000000</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>2010</td>
-      <td>10.0</td>
-      <td>Minnesota</td>
-      <td>MN</td>
-      <td>MRO</td>
-      <td>East North Central</td>
-      <td>-1.5</td>
-      <td>cold</td>
-      <td>severe weather</td>
-      <td>heavy wind</td>
-      <td>NaN</td>
-      <td>10.87</td>
-      <td>8.19</td>
-      <td>6.07</td>
-      <td>8.15</td>
-      <td>1467293.0</td>
-      <td>1801683.0</td>
-      <td>1951295.0</td>
-      <td>5222116.0</td>
-      <td>28.097672</td>
-      <td>34.501015</td>
-      <td>37.365983</td>
-      <td>2300291</td>
-      <td>276463</td>
-      <td>10150</td>
-      <td>2586905</td>
-      <td>88.920583</td>
-      <td>10.687018</td>
-      <td>0.392361</td>
-      <td>50447</td>
-      <td>47287</td>
-      <td>1.066826</td>
-      <td>2.7</td>
-      <td>4571</td>
-      <td>267895</td>
-      <td>1.706266</td>
-      <td>2.1</td>
-      <td>5310903</td>
-      <td>73.27</td>
-      <td>15.28</td>
-      <td>2279.0</td>
-      <td>1700.5</td>
-      <td>18.2</td>
-      <td>2.14</td>
-      <td>0.6</td>
-      <td>91.592666</td>
-      <td>8.407334</td>
-      <td>5.478743</td>
-      <td>2010-10-26 20:00:00</td>
-      <td>1.0</td>
-      <td>72000.0</td>
+      <th id="T_cb8dd_level0_row2" class="row_heading level0 row2">2</th>
+      <td id="T_cb8dd_row2_col0" class="data row2 col0">2010</td>
+      <td id="T_cb8dd_row2_col1" class="data row2 col1">10.000000</td>
+      <td id="T_cb8dd_row2_col2" class="data row2 col2">Minnesota</td>
+      <td id="T_cb8dd_row2_col3" class="data row2 col3">MN</td>
+      <td id="T_cb8dd_row2_col4" class="data row2 col4">MRO</td>
+      <td id="T_cb8dd_row2_col5" class="data row2 col5">East North Central</td>
+      <td id="T_cb8dd_row2_col6" class="data row2 col6">-1.500000</td>
+      <td id="T_cb8dd_row2_col7" class="data row2 col7">cold</td>
+      <td id="T_cb8dd_row2_col8" class="data row2 col8">severe weather</td>
+      <td id="T_cb8dd_row2_col9" class="data row2 col9">heavy wind</td>
+      <td id="T_cb8dd_row2_col10" class="data row2 col10">nan</td>
+      <td id="T_cb8dd_row2_col11" class="data row2 col11">10.870000</td>
+      <td id="T_cb8dd_row2_col12" class="data row2 col12">8.190000</td>
+      <td id="T_cb8dd_row2_col13" class="data row2 col13">6.070000</td>
+      <td id="T_cb8dd_row2_col14" class="data row2 col14">8.150000</td>
+      <td id="T_cb8dd_row2_col15" class="data row2 col15">1467293.000000</td>
+      <td id="T_cb8dd_row2_col16" class="data row2 col16">1801683.000000</td>
+      <td id="T_cb8dd_row2_col17" class="data row2 col17">1951295.000000</td>
+      <td id="T_cb8dd_row2_col18" class="data row2 col18">5222116.000000</td>
+      <td id="T_cb8dd_row2_col19" class="data row2 col19">28.097672</td>
+      <td id="T_cb8dd_row2_col20" class="data row2 col20">34.501015</td>
+      <td id="T_cb8dd_row2_col21" class="data row2 col21">37.365983</td>
+      <td id="T_cb8dd_row2_col22" class="data row2 col22">2300291</td>
+      <td id="T_cb8dd_row2_col23" class="data row2 col23">276463</td>
+      <td id="T_cb8dd_row2_col24" class="data row2 col24">10150</td>
+      <td id="T_cb8dd_row2_col25" class="data row2 col25">2586905</td>
+      <td id="T_cb8dd_row2_col26" class="data row2 col26">88.920583</td>
+      <td id="T_cb8dd_row2_col27" class="data row2 col27">10.687018</td>
+      <td id="T_cb8dd_row2_col28" class="data row2 col28">0.392361</td>
+      <td id="T_cb8dd_row2_col29" class="data row2 col29">50447</td>
+      <td id="T_cb8dd_row2_col30" class="data row2 col30">47287</td>
+      <td id="T_cb8dd_row2_col31" class="data row2 col31">1.066826</td>
+      <td id="T_cb8dd_row2_col32" class="data row2 col32">2.700000</td>
+      <td id="T_cb8dd_row2_col33" class="data row2 col33">4571</td>
+      <td id="T_cb8dd_row2_col34" class="data row2 col34">267895</td>
+      <td id="T_cb8dd_row2_col35" class="data row2 col35">1.706266</td>
+      <td id="T_cb8dd_row2_col36" class="data row2 col36">2.100000</td>
+      <td id="T_cb8dd_row2_col37" class="data row2 col37">5310903</td>
+      <td id="T_cb8dd_row2_col38" class="data row2 col38">73.270000</td>
+      <td id="T_cb8dd_row2_col39" class="data row2 col39">15.280000</td>
+      <td id="T_cb8dd_row2_col40" class="data row2 col40">2279.000000</td>
+      <td id="T_cb8dd_row2_col41" class="data row2 col41">1700.500000</td>
+      <td id="T_cb8dd_row2_col42" class="data row2 col42">18.200000</td>
+      <td id="T_cb8dd_row2_col43" class="data row2 col43">2.140000</td>
+      <td id="T_cb8dd_row2_col44" class="data row2 col44">0.600000</td>
+      <td id="T_cb8dd_row2_col45" class="data row2 col45">91.592666</td>
+      <td id="T_cb8dd_row2_col46" class="data row2 col46">8.407334</td>
+      <td id="T_cb8dd_row2_col47" class="data row2 col47">5.478743</td>
+      <td id="T_cb8dd_row2_col48" class="data row2 col48">2010-10-26 20:00:00</td>
+      <td id="T_cb8dd_row2_col49" class="data row2 col49">1.000000</td>
+      <td id="T_cb8dd_row2_col50" class="data row2 col50">72000.000000</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>2012</td>
-      <td>6.0</td>
-      <td>Minnesota</td>
-      <td>MN</td>
-      <td>MRO</td>
-      <td>East North Central</td>
-      <td>-0.1</td>
-      <td>normal</td>
-      <td>severe weather</td>
-      <td>thunderstorm</td>
-      <td>NaN</td>
-      <td>11.79</td>
-      <td>9.25</td>
-      <td>6.71</td>
-      <td>9.19</td>
-      <td>1851519.0</td>
-      <td>1941174.0</td>
-      <td>1993026.0</td>
-      <td>5787064.0</td>
-      <td>31.994099</td>
-      <td>33.543330</td>
-      <td>34.439329</td>
-      <td>2317336</td>
-      <td>278466</td>
-      <td>11010</td>
-      <td>2606813</td>
-      <td>88.895368</td>
-      <td>10.682239</td>
-      <td>0.422355</td>
-      <td>51598</td>
-      <td>48156</td>
-      <td>1.071476</td>
-      <td>0.6</td>
-      <td>5364</td>
-      <td>277627</td>
-      <td>1.932089</td>
-      <td>2.2</td>
-      <td>5380443</td>
-      <td>73.27</td>
-      <td>15.28</td>
-      <td>2279.0</td>
-      <td>1700.5</td>
-      <td>18.2</td>
-      <td>2.14</td>
-      <td>0.6</td>
-      <td>91.592666</td>
-      <td>8.407334</td>
-      <td>5.478743</td>
-      <td>2012-06-19 04:30:00</td>
-      <td>1.0</td>
-      <td>16200.0</td>
+      <th id="T_cb8dd_level0_row3" class="row_heading level0 row3">3</th>
+      <td id="T_cb8dd_row3_col0" class="data row3 col0">2012</td>
+      <td id="T_cb8dd_row3_col1" class="data row3 col1">6.000000</td>
+      <td id="T_cb8dd_row3_col2" class="data row3 col2">Minnesota</td>
+      <td id="T_cb8dd_row3_col3" class="data row3 col3">MN</td>
+      <td id="T_cb8dd_row3_col4" class="data row3 col4">MRO</td>
+      <td id="T_cb8dd_row3_col5" class="data row3 col5">East North Central</td>
+      <td id="T_cb8dd_row3_col6" class="data row3 col6">-0.100000</td>
+      <td id="T_cb8dd_row3_col7" class="data row3 col7">normal</td>
+      <td id="T_cb8dd_row3_col8" class="data row3 col8">severe weather</td>
+      <td id="T_cb8dd_row3_col9" class="data row3 col9">thunderstorm</td>
+      <td id="T_cb8dd_row3_col10" class="data row3 col10">nan</td>
+      <td id="T_cb8dd_row3_col11" class="data row3 col11">11.790000</td>
+      <td id="T_cb8dd_row3_col12" class="data row3 col12">9.250000</td>
+      <td id="T_cb8dd_row3_col13" class="data row3 col13">6.710000</td>
+      <td id="T_cb8dd_row3_col14" class="data row3 col14">9.190000</td>
+      <td id="T_cb8dd_row3_col15" class="data row3 col15">1851519.000000</td>
+      <td id="T_cb8dd_row3_col16" class="data row3 col16">1941174.000000</td>
+      <td id="T_cb8dd_row3_col17" class="data row3 col17">1993026.000000</td>
+      <td id="T_cb8dd_row3_col18" class="data row3 col18">5787064.000000</td>
+      <td id="T_cb8dd_row3_col19" class="data row3 col19">31.994099</td>
+      <td id="T_cb8dd_row3_col20" class="data row3 col20">33.543330</td>
+      <td id="T_cb8dd_row3_col21" class="data row3 col21">34.439329</td>
+      <td id="T_cb8dd_row3_col22" class="data row3 col22">2317336</td>
+      <td id="T_cb8dd_row3_col23" class="data row3 col23">278466</td>
+      <td id="T_cb8dd_row3_col24" class="data row3 col24">11010</td>
+      <td id="T_cb8dd_row3_col25" class="data row3 col25">2606813</td>
+      <td id="T_cb8dd_row3_col26" class="data row3 col26">88.895368</td>
+      <td id="T_cb8dd_row3_col27" class="data row3 col27">10.682239</td>
+      <td id="T_cb8dd_row3_col28" class="data row3 col28">0.422355</td>
+      <td id="T_cb8dd_row3_col29" class="data row3 col29">51598</td>
+      <td id="T_cb8dd_row3_col30" class="data row3 col30">48156</td>
+      <td id="T_cb8dd_row3_col31" class="data row3 col31">1.071476</td>
+      <td id="T_cb8dd_row3_col32" class="data row3 col32">0.600000</td>
+      <td id="T_cb8dd_row3_col33" class="data row3 col33">5364</td>
+      <td id="T_cb8dd_row3_col34" class="data row3 col34">277627</td>
+      <td id="T_cb8dd_row3_col35" class="data row3 col35">1.932089</td>
+      <td id="T_cb8dd_row3_col36" class="data row3 col36">2.200000</td>
+      <td id="T_cb8dd_row3_col37" class="data row3 col37">5380443</td>
+      <td id="T_cb8dd_row3_col38" class="data row3 col38">73.270000</td>
+      <td id="T_cb8dd_row3_col39" class="data row3 col39">15.280000</td>
+      <td id="T_cb8dd_row3_col40" class="data row3 col40">2279.000000</td>
+      <td id="T_cb8dd_row3_col41" class="data row3 col41">1700.500000</td>
+      <td id="T_cb8dd_row3_col42" class="data row3 col42">18.200000</td>
+      <td id="T_cb8dd_row3_col43" class="data row3 col43">2.140000</td>
+      <td id="T_cb8dd_row3_col44" class="data row3 col44">0.600000</td>
+      <td id="T_cb8dd_row3_col45" class="data row3 col45">91.592666</td>
+      <td id="T_cb8dd_row3_col46" class="data row3 col46">8.407334</td>
+      <td id="T_cb8dd_row3_col47" class="data row3 col47">5.478743</td>
+      <td id="T_cb8dd_row3_col48" class="data row3 col48">2012-06-19 04:30:00</td>
+      <td id="T_cb8dd_row3_col49" class="data row3 col49">1.000000</td>
+      <td id="T_cb8dd_row3_col50" class="data row3 col50">16200.000000</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>2015</td>
-      <td>7.0</td>
-      <td>Minnesota</td>
-      <td>MN</td>
-      <td>MRO</td>
-      <td>East North Central</td>
-      <td>1.2</td>
-      <td>warm</td>
-      <td>severe weather</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>13.07</td>
-      <td>10.16</td>
-      <td>7.74</td>
-      <td>10.43</td>
-      <td>2028875.0</td>
-      <td>2161612.0</td>
-      <td>1777937.0</td>
-      <td>5970339.0</td>
-      <td>33.982576</td>
-      <td>36.205850</td>
-      <td>29.779498</td>
-      <td>2374674</td>
-      <td>289044</td>
-      <td>9812</td>
-      <td>2673531</td>
-      <td>88.821637</td>
-      <td>10.811320</td>
-      <td>0.367005</td>
-      <td>54431</td>
-      <td>49844</td>
-      <td>1.092027</td>
-      <td>1.7</td>
-      <td>4873</td>
-      <td>292023</td>
-      <td>1.668704</td>
-      <td>2.2</td>
-      <td>5489594</td>
-      <td>73.27</td>
-      <td>15.28</td>
-      <td>2279.0</td>
-      <td>1700.5</td>
-      <td>18.2</td>
-      <td>2.14</td>
-      <td>0.6</td>
-      <td>91.592666</td>
-      <td>8.407334</td>
-      <td>5.478743</td>
-      <td>2015-07-18 02:00:00</td>
-      <td>5.0</td>
-      <td>7200.0</td>
+      <th id="T_cb8dd_level0_row4" class="row_heading level0 row4">4</th>
+      <td id="T_cb8dd_row4_col0" class="data row4 col0">2015</td>
+      <td id="T_cb8dd_row4_col1" class="data row4 col1">7.000000</td>
+      <td id="T_cb8dd_row4_col2" class="data row4 col2">Minnesota</td>
+      <td id="T_cb8dd_row4_col3" class="data row4 col3">MN</td>
+      <td id="T_cb8dd_row4_col4" class="data row4 col4">MRO</td>
+      <td id="T_cb8dd_row4_col5" class="data row4 col5">East North Central</td>
+      <td id="T_cb8dd_row4_col6" class="data row4 col6">1.200000</td>
+      <td id="T_cb8dd_row4_col7" class="data row4 col7">warm</td>
+      <td id="T_cb8dd_row4_col8" class="data row4 col8">severe weather</td>
+      <td id="T_cb8dd_row4_col9" class="data row4 col9">nan</td>
+      <td id="T_cb8dd_row4_col10" class="data row4 col10">nan</td>
+      <td id="T_cb8dd_row4_col11" class="data row4 col11">13.070000</td>
+      <td id="T_cb8dd_row4_col12" class="data row4 col12">10.160000</td>
+      <td id="T_cb8dd_row4_col13" class="data row4 col13">7.740000</td>
+      <td id="T_cb8dd_row4_col14" class="data row4 col14">10.430000</td>
+      <td id="T_cb8dd_row4_col15" class="data row4 col15">2028875.000000</td>
+      <td id="T_cb8dd_row4_col16" class="data row4 col16">2161612.000000</td>
+      <td id="T_cb8dd_row4_col17" class="data row4 col17">1777937.000000</td>
+      <td id="T_cb8dd_row4_col18" class="data row4 col18">5970339.000000</td>
+      <td id="T_cb8dd_row4_col19" class="data row4 col19">33.982576</td>
+      <td id="T_cb8dd_row4_col20" class="data row4 col20">36.205850</td>
+      <td id="T_cb8dd_row4_col21" class="data row4 col21">29.779498</td>
+      <td id="T_cb8dd_row4_col22" class="data row4 col22">2374674</td>
+      <td id="T_cb8dd_row4_col23" class="data row4 col23">289044</td>
+      <td id="T_cb8dd_row4_col24" class="data row4 col24">9812</td>
+      <td id="T_cb8dd_row4_col25" class="data row4 col25">2673531</td>
+      <td id="T_cb8dd_row4_col26" class="data row4 col26">88.821637</td>
+      <td id="T_cb8dd_row4_col27" class="data row4 col27">10.811320</td>
+      <td id="T_cb8dd_row4_col28" class="data row4 col28">0.367005</td>
+      <td id="T_cb8dd_row4_col29" class="data row4 col29">54431</td>
+      <td id="T_cb8dd_row4_col30" class="data row4 col30">49844</td>
+      <td id="T_cb8dd_row4_col31" class="data row4 col31">1.092027</td>
+      <td id="T_cb8dd_row4_col32" class="data row4 col32">1.700000</td>
+      <td id="T_cb8dd_row4_col33" class="data row4 col33">4873</td>
+      <td id="T_cb8dd_row4_col34" class="data row4 col34">292023</td>
+      <td id="T_cb8dd_row4_col35" class="data row4 col35">1.668704</td>
+      <td id="T_cb8dd_row4_col36" class="data row4 col36">2.200000</td>
+      <td id="T_cb8dd_row4_col37" class="data row4 col37">5489594</td>
+      <td id="T_cb8dd_row4_col38" class="data row4 col38">73.270000</td>
+      <td id="T_cb8dd_row4_col39" class="data row4 col39">15.280000</td>
+      <td id="T_cb8dd_row4_col40" class="data row4 col40">2279.000000</td>
+      <td id="T_cb8dd_row4_col41" class="data row4 col41">1700.500000</td>
+      <td id="T_cb8dd_row4_col42" class="data row4 col42">18.200000</td>
+      <td id="T_cb8dd_row4_col43" class="data row4 col43">2.140000</td>
+      <td id="T_cb8dd_row4_col44" class="data row4 col44">0.600000</td>
+      <td id="T_cb8dd_row4_col45" class="data row4 col45">91.592666</td>
+      <td id="T_cb8dd_row4_col46" class="data row4 col46">8.407334</td>
+      <td id="T_cb8dd_row4_col47" class="data row4 col47">5.478743</td>
+      <td id="T_cb8dd_row4_col48" class="data row4 col48">2015-07-18 02:00:00</td>
+      <td id="T_cb8dd_row4_col49" class="data row4 col49">5.000000</td>
+      <td id="T_cb8dd_row4_col50" class="data row4 col50">7200.000000</td>
     </tr>
   </tbody>
 </table>
