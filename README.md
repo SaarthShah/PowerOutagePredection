@@ -16,7 +16,7 @@ For this study, we will focus on:
     
 </ul>
 
-<b>Therefore for this study we will be building a multi-class classifier to predict 'CAUSE.CATEGORY.' To test this model we will be using the F-1 score as a metric to test the strength of our classifier due to the following reasons:</b>
+<b>Therefore for this study we will be building a multi-class classifier to predict `CAUSE.CATEGORY.` To test this model we will be using the F-1 score as a metric to test the strength of our classifier due to the following reasons:</b>
 
 <ul>
     <li>The proportion of power outages in our dataset caused due to severe weather were around 0.497392, so if our classifier simply always predicts 'severe weather' as a category then it might achieve a high accuracy. However, as we account for both recall and precision in F-1 score, it will be a better test to gauge the strength of our classifier.</li>
@@ -24,7 +24,7 @@ For this study, we will focus on:
 </ul>
 
 Model Type: Multiclass Classifier <br>
-Response Variable: CAUSE.CATEGORY<br>
+Response Variable: `CAUSE.CATEGORY`<br>
 Metric: F-1 Score<br>
 
 <b>Information needed during the “time of prediction”:</b>
@@ -36,14 +36,12 @@ Metric: F-1 Score<br>
 In this notebook we will be working with the <a href="https://engineering.purdue.edu/LASCI/research-data/outages/outagerisks">Power Outage</a> dataset to potentially find patterns that might be affecting how long a power outage lasts. Our dataset gives us access to the regional details of the outage, the prices of electricity, outage cause, people affected, etc. This information should be more than enough for us to find and discover potential patterns that might be affecting how long these durations last.
 
 
+Here's a quick description of the relevant columns in our dataset:
+
 `YEAR`: Contains the year when this event happened <br><br>
 `U.S._STATE`: Name of the US State where the Outage Happened <br><br>
-`OUTAGE.DURATION`: How long did each duration last <br><br>
-`CUSTOMERS.AFFECTED`: How many people got affected <br><br>
 `CAUSE.CATEGORY`: The reported reason for the Outage <br><br>
 `CLIMATE.CATEGORY`: Current climate where the outage was reported <br><br>
-`OUTAGE.RESTORATION.DATE`: Date when the outage was resolved <br><br>
-`OUTAGE.RESTORATION.TIME`: Time when the outage was resolved <br><br>
 `OUTAGE.START.DATE`: Date when the outage was reported <br><br>
 `OUTAGE.START.TIME`: Time when the outage was reported <br><br>
 
