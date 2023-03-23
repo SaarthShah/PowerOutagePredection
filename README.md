@@ -126,59 +126,11 @@ Here's how our fitted model looks like:
 
 <img src='Plots/fittedbaseline.png'>
 
-| U.S._STATE           |   equipment failure |   fuel supply emergency |   intentional attack |   islanding |   public appeal |   severe weather |   system operability disruption |
-|:---------------------|--------------------:|------------------------:|---------------------:|------------:|----------------:|-----------------:|--------------------------------:|
-| Alabama              |               nan   |                   nan   |                 77   |       nan   |           nan   |           1016.5 |                           nan   |
-| Arizona              |                67.5 |                   nan   |                180   |       nan   |           nan   |          26760   |                           384.5 |
-| Arkansas             |               105   |                   nan   |                175   |         3   |           300   |           1213.5 |                           nan   |
-| California           |               269   |                   882.5 |                117   |       128.5 |           420   |            962   |                           199   |
-| Colorado             |               nan   |                   nan   |                105   |         2   |           nan   |           2425   |                           337.5 |
-| Connecticut          |               nan   |                   nan   |                  1   |       nan   |           nan   |           2040   |                           nan   |
-| Delaware             |                50   |                   nan   |                  1   |       nan   |           nan   |           2153.5 |                           nan   |
-| District of Columbia |               159   |                   nan   |                nan   |       nan   |           nan   |           2425   |                           nan   |
-| Florida              |               308.5 |                   nan   |                 50   |       nan   |          4320   |           4335.5 |                           121.5 |
-| Georgia              |               nan   |                   nan   |                108   |       nan   |           nan   |           1416   |                           nan   |
-| Hawaii               |               nan   |                   nan   |                nan   |       nan   |           nan   |            955   |                           237   |
-| Idaho                |               nan   |                   nan   |                180   |       nan   |          1548   |            nan   |                           220   |
-| Illinois             |               149   |                  2761   |               1450   |       nan   |           120   |           1200   |                           nan   |
-| Indiana              |                 1   |                 12240   |                 49.5 |        96   |           nan   |           3022   |                            65   |
-| Iowa                 |               nan   |                   nan   |               2161   |       nan   |           nan   |           1044   |                           nan   |
-| Kansas               |               nan   |                   nan   |                187   |       nan   |           913   |          13650   |                           nan   |
-| Kentucky             |               652   |                 12570   |                108   |       nan   |           nan   |           1680   |                           nan   |
-| Louisiana            |               227   |                 28170   |                nan   |       nan   |           533.5 |           3063.5 |                           576   |
-| Maine                |               nan   |                  1676   |                  0.5 |       881   |           nan   |           1112   |                           nan   |
-| Maryland             |               nan   |                   nan   |                  1   |       nan   |           nan   |           3050   |                           304   |
-| Massachusetts        |               nan   |                  2891   |                 64.5 |       nan   |           nan   |            480   |                            67   |
-| Michigan             |               761   |                   nan   |               1408   |         1   |          1078   |           4259   |                          2694   |
-| Minnesota            |               nan   |                   nan   |                 78   |       nan   |           nan   |           3000   |                           nan   |
-| Mississippi          |               nan   |                   nan   |                  5   |       nan   |           nan   |            nan   |                           300   |
-| Missouri             |               nan   |                   nan   |                 25   |       nan   |           nan   |           2880   |                            65   |
-| Montana              |               nan   |                   nan   |                 93   |        34.5 |           nan   |            nan   |                           nan   |
-| Nebraska             |               nan   |                   nan   |                nan   |       nan   |           159   |             60   |                           nan   |
-| Nevada               |               nan   |                   nan   |                108   |       nan   |           nan   |            nan   |                           nan   |
-| New Hampshire        |               nan   |                   nan   |                 53   |       nan   |           nan   |           1597.5 |                           nan   |
-| New Jersey           |               nan   |                   nan   |                  0   |       nan   |           nan   |           5115   |                           748.5 |
-| New Mexico           |               nan   |                    76   |                126.5 |       nan   |           nan   |            nan   |                             0   |
-| New York             |               247   |                 15855   |                 17.5 |       nan   |          2760   |           4710   |                           191   |
-| North Carolina       |               nan   |                   nan   |                484   |       nan   |           nan   |           1336.5 |                            45   |
-| North Dakota         |               nan   |                   nan   |                nan   |       nan   |           720   |            nan   |                           nan   |
-| Ohio                 |               nan   |                   nan   |                 41   |       nan   |           nan   |           3660   |                          1744.5 |
-| Oklahoma             |               nan   |                   nan   |                110   |       984   |           431   |           2895   |                           nan   |
-| Oregon               |               200   |                   nan   |                 73   |       nan   |           nan   |           1526   |                           nan   |
-| Pennsylvania         |               376   |                   nan   |                903   |       nan   |           nan   |           3059   |                           329   |
-| South Carolina       |               nan   |                   nan   |                nan   |       nan   |           nan   |           2947.5 |                           nan   |
-| South Dakota         |               nan   |                   nan   |                nan   |       120   |           nan   |            nan   |                           nan   |
-| Tennessee            |               404   |                   nan   |                 48   |       nan   |          2700   |            750   |                            20   |
-| Texas                |               318   |                 20160   |                 74   |       nan   |           330   |           1725   |                           322   |
-| Utah                 |                15   |                   nan   |                 15   |       nan   |          2275   |            957   |                           537.5 |
-| Vermont              |               nan   |                   nan   |                 15   |       nan   |           nan   |            nan   |                           nan   |
-| Virginia             |               nan   |                   nan   |                  2   |       nan   |           683.5 |            597   |                           241   |
-| Washington           |              1204   |                     1   |                 98.5 |        21   |           248   |           3896   |                            25   |
-| West Virginia        |               nan   |                   nan   |                  1   |       nan   |           nan   |           9576   |                           nan   |
-| Wisconsin            |               nan   |                 13564   |                 90   |       nan   |           388   |            960   |                           nan   |
-| Wyoming              |                61   |                   nan   |                  0   |        32   |           nan   |            106   |                           nan   |
+**Model Evaluation**
 
-Above is the pivot table which showcases the median outage duration for the combination of states and outage causes. Looking at the results, we can see that some states like California & Illinois when paired with certain `OUTAGE.CAUSE` have higher outage durations than other states like Montana and Nebraska. Therefore, there might be some correlation between the state and outage cause on the outage duration. This is tested further in our Hypothesis test.
+Now, that we have trained our model, let's test it's performance on our training data. For this we will be using the f1_score which is a harmonic average of both precision and recall.
+
+<iframe src="Plots/baseline_train.html" width=800 height=320 frameBorder=0></iframe>
 
 ## **Assessment of Missingness**
 
