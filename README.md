@@ -6,7 +6,9 @@ Report by Saarth Shah and Saathvik Dirisala
 
 For this study, we will focus on:
 
-<b>People are extremely dependent on power to get on with their daily lives. In this study, we want to predict what might cause a power outage based on information that would intuitively be available to a person "during" or at the "beginning" of an outage. Knowing what might have caused an outage have some of the following benefits:</b>
+`People are extremely dependent on power to get on with their daily lives. In this study, we want to predict what might cause a power outage based on information that would intuitively be available to a person "during" or at the "beginning" of an outage.`
+
+<b>Knowing what might have caused an outage have some of the following benefits:</b>
 
 <ul>
 
