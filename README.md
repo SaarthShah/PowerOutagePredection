@@ -33,7 +33,17 @@ For this study, we will focus on:
 
 <b>Information needed during the “time of prediction”:</b>
 <ul>
-    <li></li>
+    <li>US State where the Outage is Happening</li>
+    <li>Climatic Region of the State where the outage is Occuring</li>
+    <li>Month when the Outage is Happening</li>
+    <li>Day of the Week when the Outage is Happening</li>
+    <li>Time of the Day when the Outage is Happening</li>
+    <li>Total Price of Electricity in the Area where the Outage is Happening</li>
+    <li>Percentage of Land in the Area where the Outage is Happening</li>
+    <li>Total Number of Customers in the Area where the Outage is Happening</li>
+    <li>Percentage of Urban Customers in the Area where the Outage is Happening</li>
+    <li>Percentage of Inland Water in the Area where the Outage is Happening</li>
+    <li>The oceanic El Niño/La Niña (ONI) index at the place where the outage is occuring</li>
 </ul>
 
 
@@ -48,6 +58,16 @@ Here's a quick description of the relevant columns in our dataset:
 `CLIMATE.CATEGORY`: Current climate where the outage was reported <br><br>
 `OUTAGE.START.DATE`: Date when the outage was reported <br><br>
 `OUTAGE.START.TIME`: Time when the outage was reported <br><br>
+`CLIMATE.REGION`: Climate in the specified region where the outage was reported <br><br>
+`ANOMALY.LEVEL`: Represents the oceanic El Niño/La Niña (ONI) index referring to the cold and warm episodes by season.<br><br>
+`MONTH`:  Contains the month when this event happened.<br><br>
+`DAY_OF_WEEK`:  Contains the day of the week (Monday, Tuesday, etc) when this event happened.<br><br>
+`TIME_OF_DAY`:  Contains the time of the day when this event happened.<br><br>
+`TOTAL.PRICE`:  Contains the total price of electricity in the area where the outage happened.<br><br>
+`PCT_LAND`:  Contains the percentage of land in the area where the outage happened.<br><br>
+`TOTAL.CUSTOMERS`:  Contains the total number of customers in the area where the outage happened.<br><br>
+`AREAPCT_UC`:  Contains the percentage of urban customers in the area where the outage happened.<br><br>
+`PCT_WATER_INLAND`:  Contains the percentage of inland water in the area where the outage happened.<br><br>
 
 ## **Cleaning and EDA**
 
