@@ -130,7 +130,26 @@ Here's how our fitted model looks like:
 
 Now, that we have trained our model, let's test it's performance on our training data. For this we will be using the f1_score which is a harmonic average of both precision and recall.
 
+F1 Score: 0.917
+Confusion Matrix:
+
 <iframe src="Plots/baseline_train.html" width=800 height=320 frameBorder=0></iframe>
+
+The confusion matrix shows the number of correct and incorrect predictions made by the model on the training data, broken down by class. The diagonal of the matrix represents the true positives for each class, while the off-diagonal elements represent false positives and false negatives.
+
+In this case, the model appears to be performing well on the training set, with high numbers of true positives across most classes and relatively few false positives and false negatives. The F1 score of 0.917 is a measure of the overall performance of the model, taking into account both precision and recall, and indicates that the model is able to achieve high accuracy while minimizing false positives and false negatives.
+
+Now let's test the model on the unseen test data:
+
+F1 Score: 0.688
+
+In this case, the model appears to be struggling to correctly classify some of the classes, as seen in the low number of true positives and high number of false positives and false negatives. The F1 score of 0.688 indicates that the model is not performing well overall, with a relatively high number of false positives and false negatives. This suggests that the model may be overfitting to the training data, or may not have enough information to accurately distinguish between the classes. This means that our model is not generalizing well on unseen data.
+
+<iframe src="Plots/baseline_test.html" width=800 height=320 frameBorder=0></iframe>
+
+Below let's make a quick plot to plot the distribution of the F1 score on the test data.
+
+<iframe src='Plots/baselinef1dist.html' width=800 height=320 frameBorder=0></iframe>
 
 ## **Assessment of Missingness**
 
