@@ -85,7 +85,7 @@ Our next step was to clean the dataset in order to make the rows and columns usa
 
 4. We also dropped the `OUTAGE.RESTORATION.DATE`, `CUSTOMERS.AFFECTED`, `OUTAGE.DURATION` and `OUTAGE.RESTORATION.TIME` columns as we would likely not have access to these values at the time of predection.
 
-5. The DEMAND.LOSS.MW column has too many NaN values. Furthermore, there it does not consistently report the same information, so we decided to drop that column from our analysis.
+5. The `DEMAND.LOSS.MW` column has too many NaN values. Furthermore, there it does not consistently report the same information, so we decided to drop that column from our analysis.
 
 
 After thoroughly cleaning the dataset, here's a preview of our cleaned dataframe for power outages:
@@ -93,24 +93,6 @@ After thoroughly cleaning the dataset, here's a preview of our cleaned dataframe
 <iframe src="Plots/cleaned_df.html" width=800 height=320 frameBorder=0></iframe>
 
 ## **Baseline Model**
-
-**Distribution of Power Outage Durations**
-
-<iframe src="Plots/univplot1.html" width=800 height=600 frameBorder=0></iframe>
-<iframe src="Plots/univplot2.html" width=800 height=600 frameBorder=0></iframe>
-
-These two plots help us understand the distribution of the how long these power outages last. In plot 1, we broke down the duration in minutes into 10 different bins. Plot 2, does something similar where the duration is in number of days. Looking at these two plots we can infer that most of the power outages that occured lasted less than 1 day and most of them resolving before 5 days. However there are some outlier cases where these outages lasted upto 30 days.
-
-**Distribution of Power Outages per Year**
-
-<iframe src="Plots/uniplot3.html" width=800 height=600 frameBorder=0></iframe>
-
-While the dataset tells us that the power outages are between 2010 and 2016, it is still important to know the distribution of these outages per year to get a better idea of our dataset before any analysis. Looking at the chart above we can see that in our dataset, the mass of the power outages (68%) we have collected information about happened between 2008 and 2015, with the maximum number of outages (269) recorded in 2011.
-
-**Note**: We do not know if our dataset contains **all** the outages that happened between 2000 and 2016, so our statement is only helpful for us to understand our sample and not the entire population.
-
-
-### **Bivariate Analysis**
 
 Initially, to build our classifier, we will train the model on the following features:
 <ul>
@@ -142,7 +124,7 @@ To train and test our model, we will be using the standard 75-25 test-train spli
 
 Here's how our fitted model looks like:
 
-<img src='Plots/fittedbase.png'>
+<img src='Plots/fittedbaseline.png'>
 
 | U.S._STATE           |   equipment failure |   fuel supply emergency |   intentional attack |   islanding |   public appeal |   severe weather |   system operability disruption |
 |:---------------------|--------------------:|------------------------:|---------------------:|------------:|----------------:|-----------------:|--------------------------------:|
