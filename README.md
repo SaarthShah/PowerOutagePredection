@@ -33,17 +33,16 @@ For this study, we will focus on:
 
 <b>Information needed during the “time of prediction”:</b>
 <ul>
-    <li>US State where the Outage is Happening</li>
-    <li>Climatic Region of the State where the outage is Occuring</li>
-    <li>Time stamp of when the Outage started</li>
-    <li>Total Price of Electricity in the Area where the Outage is Happening</li>
-    <li>Percentage of Land in the Area where the Outage is Happening</li>
-    <li>Total Number of Customers in the Area where the Outage is Happening</li>
-    <li>Percentage of Urban Customers in the Area where the Outage is Happening</li>
-    <li>Percentage of Inland Water in the Area where the Outage is Happening</li>
-    <li>The oceanic El Niño/La Niña (ONI) index at the place where the outage is occuring</li>
+    <li><b>US State where the Outage is Happening:</b> Knowing the state where the outage is happening is important because it helps in determining the the policies, resources and the infrastructure available to handle power outages in that state. For any power outage that is happening at a given time, we would know it's affected geographical location and ultimately its State</li><br>
+    <li><b>Climatic Region of the State where the outage is Occuring:</b> Climatic conditions like hurricanes, rain and snow can affect the supply of power and damages caused due to severe weather conditions. For any power outage that is happening at a given time, we would know it's affected geographical location and ultimately its climatic and weather conditions</li><br>
+    <li><b>Time stamp of when the Outage started:</b> During Off-work hours and weekends, there is a likelyhood of higher intentional attacks to power grids due to less security. For any power outage that is currently happening, we are likely to know what time it started.</li><br>
+    <li><b>Total Price of Electricity in the Area where the Outage is Happening:</b> The price of electricity in the area where the outage is occurring is important because it can indicate the infrastructure available to maintain the power grid and the incentives for the utility company to invest in proper infrastructure. It is easily available through official government websites, utility company websites, or public databases.</li><br>
+    <li><b>Percentage of Land in the Area where the Outage is Happening:</b> This information is required to determine the size and scope of the outage, particularly for larger regions. The percentage of land in the area can be obtained through geographic information system (GIS) data or through government agencies. </li><br>
+    <li><b>Total Number of Customers in the Area where the Outage is Happening:</b> This information would help us know potenitally how many people can be affected by this outage. Additionally, with more customers, power grid corporations are more likely to invest in more stable infrastructure. This information should be available to power corporations trying to predict outages.</li><br>
+    <li><b>Percentage of Urban Customers in the Area where the Outage is Happening:</b> This information is required to determine the impact of the outage on urban areas, particularly for emergency response efforts. Additionally, in more urbanized areas, the power corporations are more likely to upkeep latest infrastructure. The percentage of urban customers can be obtained from census data or through government agencies.</li><br>
+    <li><b>Percentage of Inland Water in the Area where the Outage is Happening:</b> This information is required to assess the potential impact of the outage on water resources, particularly for areas that rely on electricity for water treatment and distribution. The percentage of inland water can be obtained through GIS data or through government agencies.</li><br>
+    <li><b>The oceanic El Niño/La Niña (ONI) index at the place where the outage is occuring:</b>This information is required to determine the potential impact of the El Niño or La Niña weather patterns on the outage, particularly in coastal regions. The ONI index can be obtained through the National Oceanic and Atmospheric Administration (NOAA)</li>
 </ul>
-
 
 In this notebook we will be working with the <a href="https://engineering.purdue.edu/LASCI/research-data/outages/outagerisks">Power Outage</a> dataset to potentially find patterns that might be affecting how long a power outage lasts. Our dataset gives us access to the regional details of the outage, the prices of electricity, outage cause, people affected, etc. The relevant columns in our dataset mimic the information we would potenitally have at the onset of an outage.
 
