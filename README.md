@@ -112,11 +112,17 @@ While the dataset tells us that the power outages are between 2010 and 2016, it 
 
 ### **Bivariate Analysis**
 
-**Outage Duration Distributiom by U.S. States**
+Initially, to build our classifier, we will train the model on the following features:
+<ul>
+    <li> <b>U.S._STATE (Qualitative Nominal)</b>: The state in which the power outage took place can provide the model with valuable information because some states are more prone to certain kinds of outages than others. A state may be more prone to hurricanes than others, and this would be valubale to the model in its prediction of cause.</li>
+    <li> <b>CLIMATE.REGION (Qualitative Nominal)</b>: Climate region tells the model about the climate conditions of the state in which the outage has taken place. Climate conditions would likely have a causal relationship with the nature of the outage, thus helping the model better classify outages based on cause.</li>
+    <li> <b>CLIMATE.CATEGORY (Qualitative Ordinal)</b>: Describes the oceanic El Nino / La Nina index as an ordinal variable. This is another climate-related variable that is related to the year, rather than the region. This will allow our model improve its classification by taking temporal factors into consideration</li>
+    <li> <b>YEAR (Quantitative Discrete)</b>: This is an important factor that will help other features, like CLIMATE.CATEGORY to be of value to the model. Furthermore, this column may also encapsulate some trend in the distribution of the CAUSE.CATEGORY that may be useful to the model.</li>
+    <li> <b>MONTH (Quantitative Discrete)</b>: The month in which an outage took place may provide the model with valuable information about the chances of each of the CAUSE.CATEGORYs occurring. For instance, winter time may see more outages in snowy regions due to weather.</li>
+    
+</ul>
 
-<iframe src="Plots/bivarplot1.html" width=800 height=1200 frameBorder=0></iframe>
-
-Above is a histogram plot of `OUTAGE.DURATION` by U.S. States in order to study the shapes of the distributions. The y-axis contains the duration in minutes. The conditional distributions above tell us that most of the U.S. States have a similarly right-skewed distribution as the overall `OUTAGE.DURATION` distribution. This means that there is no single state amongst those with more than 1 power outage in which the outage durations are not right skewed by large outlier values.
+To build our initial model, we will be using a <a href='https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html'>RandomForestClassifier</a> as they are an ensemble method that combines the results of multiple decision trees. This approach can help to reduce overfitting and improve the accuracy and stability of the prediction model. Additionally, random forest algorithm can handle nonlinear relationships between the input features and the response variable. This is important for power outage prediction, as there may be complex relationships between different factors such as weather patterns, infrastructure age, and population density. Thereby, for the baseline model, RandomForest seem to better than just training regular decision trees. 
 
 **Outage Duration versus Customers Affected**
 
