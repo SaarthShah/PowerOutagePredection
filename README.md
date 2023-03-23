@@ -124,17 +124,25 @@ Initially, to build our classifier, we will train the model on the following fea
 
 To build our initial model, we will be using a <a href='https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html'>RandomForestClassifier</a> as they are an ensemble method that combines the results of multiple decision trees. This approach can help to reduce overfitting and improve the accuracy and stability of the prediction model. Additionally, random forest algorithm can handle nonlinear relationships between the input features and the response variable. This is important for power outage prediction, as there may be complex relationships between different factors such as weather patterns, infrastructure age, and population density. Thereby, for the baseline model, RandomForest seem to better than just training regular decision trees. 
 
-**Outage Duration versus Customers Affected**
+**Feature Engineering**
 
-<iframe src="Plots/bivarplot2.html" width=800 height=1200 frameBorder=0></iframe>
+For the Qualitative features, we will apply OneHotEncoding so that our model can properly account for the different categorical features. We will achieve this using the OneHotEncoder class and fitting it in a ColumnTransformer()
 
-Based on the plot above, there seems to be a line of fit but the points seem to be heavily clustered towards the origin. We weren't able to find any visual cues that might hint towards a correlation so we decided to calculate the correlation coefficient and the results of the OLS regression that was used to find the trendline.
+For example, suppose we have a categorical variable "color" with three categories: "red," "green," and "blue." To encode this variable using one-hot encoding, we would create three binary vectors, one for each category:
 
-![OLS Regression Results](https://i.ibb.co/87NyLFb/Screenshot-at-Feb-23-18-26-46.png)
+"red" : [1, 0, 0]
+"green" : [0, 1, 0]
+"blue" : [0, 0, 1]
 
-Based on the correlation coefficient of 0.26, there appears to be a positive correlation between the number of customers affected and the outage duration. However, this strength of the correlation is considered to be moderate, meaning that the relationship between the variables is not particularly strong. Based on this, we can only say that the two variables may have a positive correlation but the trend is not strong enough to come to a conclusion.
+As we have 3 categorical columns, we built a pipeline by using the ColumnTransformer to OneHotEncode the `U.S._STATE`,`CLIMATE.REGION`,`CLIMATE.CATEGORY` columns and letting `YEAR` and `MONTH` to passthrough. We then fit the pipeline on our training data and transformed the training and test data.
 
-### **Interesting Aggregates**
+**Model Fitting**
+
+To train and test our model, we will be using the standard 75-25 test-train split where 75% of data is used for training and 25% is used for testing.
+
+Here's how our fitted model looks like:
+
+<img src='Plots/fittedbase.png'>
 
 | U.S._STATE           |   equipment failure |   fuel supply emergency |   intentional attack |   islanding |   public appeal |   severe weather |   system operability disruption |
 |:---------------------|--------------------:|------------------------:|---------------------:|------------:|----------------:|-----------------:|--------------------------------:|
