@@ -2,9 +2,39 @@ Report by Saarth Shah and Saathvik Dirisala
 
 ## **Introduction**
 
-In this study we will be exploring the [Power Outage Dataset](https://dsc80.com/project3/power-outages). This dataset contains datapoints for the major power outage data in the continental U.S. from January 2000 to July 2016. Overall this dataset contains 1534 power outage events that happened in the United States.
+For this study, we will focus on:
 
-Some of the relevant columns that the dataset entails contains information about where and when outages happened, how many people were affected, the population breakdown of where this event happened, cause of the power outage, price of electricity, etc. 
+<b>People are extremely dependent on power to get on with their daily lives. In this study, we want to predict what might cause a power outage based on information that would intuitively be available to a person "during" an outage. Knowing what might have caused an outage have some of the following benefits:</b>
+
+<ul>
+
+<li>Improving Power Grid Recovery: By understanding the common causes of power outages, power grid operators can take steps to improve the ability of the power grid to undo damages and reduce the likelihood of future outages.</li>
+
+<li>Faster Response to Outages: If the cause of a power outage can be quickly identified, power grid operators can respond more quickly to restore power to affected areas, reducing the duration of the outage and minimizing the impact on people's daily lives.</li>
+
+<li>Planning for Outages: Knowing the likely causes of power outages can help people and communities plan for potential outages and take steps to mitigate their impact. For example, people may choose to have backup generators or stock up on essential supplies during periods of high risk.</li>
+    
+</ul>
+
+<b>Therefore for this study we will be building a multi-class classifier to predict 'CAUSE.CATEGORY.' To test this model we will be using the F-1 score as a metric to test the strength of our classifier due to the following reasons:</b>
+
+<ul>
+    <li>The proportion of power outages in our dataset caused due to severe weather were around 0.497392, so if our classifier simply always predicts 'severe weather' as a category then it might achieve a high accuracy. However, as we account for both recall and precision in F-1 score, it will be a better test to gauge the strength of our classifier.</li>
+    <li>As the number of instances in each class may be too small to provide accurate predictions, F1 score can be more useful than accuracy in such cases because it the utlizes both precision and recall, which help ensure that all classes are correctly identified.</li>
+</ul>
+
+Model Type: Multiclass Classifier <br>
+Response Variable: CAUSE.CATEGORY<br>
+Metric: F-1 Score<br>
+
+<b>Information needed during the “time of prediction”:</b>
+<ul>
+    <li></li>
+</ul>
+
+
+In this notebook we will be working with the <a href="https://engineering.purdue.edu/LASCI/research-data/outages/outagerisks">Power Outage</a> dataset to potentially find patterns that might be affecting how long a power outage lasts. Our dataset gives us access to the regional details of the outage, the prices of electricity, outage cause, people affected, etc. This information should be more than enough for us to find and discover potential patterns that might be affecting how long these durations last.
+
 
 `YEAR`: Contains the year when this event happened <br><br>
 `U.S._STATE`: Name of the US State where the Outage Happened <br><br>
