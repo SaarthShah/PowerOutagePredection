@@ -16,16 +16,16 @@ For this study, we will focus on:
     
 </ul>
 
-<b>Therefore for this study we will be building a multi-class classifier to predict `CAUSE.CATEGORY.` To test this model we will be using the F-1 score as a metric to test the strength of our classifier due to the following reasons:</b>
+<b>Therefore for this study we will be building a multi-class classifier to predict `CAUSE.CATEGORY.` To test this model we will be using the <b>F-1 score</b> as a metric to test the strength of our classifier due to the following reasons:</b>
 
 <ul>
     <li>The proportion of power outages in our dataset caused due to severe weather were around 0.497392, so if our classifier simply always predicts 'severe weather' as a category then it might achieve a high accuracy. However, as we account for both recall and precision in F-1 score, it will be a better test to gauge the strength of our classifier.</li>
     <li>As the number of instances in each class may be too small to provide accurate predictions, F1 score can be more useful than accuracy in such cases because it the utlizes both precision and recall, which help ensure that all classes are correctly identified.</li>
 </ul>
 
-Model Type: Multiclass Classifier <br>
-Response Variable: `CAUSE.CATEGORY`<br>
-Metric: F-1 Score<br>
+<b>Model Type:</b> Multiclass Classifier <br>
+<b>Response Variable:</b> `CAUSE.CATEGORY`<br>
+<b>Metric:</b> F-1 Score<br>
 
 <b>Information needed during the “time of prediction”:</b>
 <ul>
@@ -44,12 +44,6 @@ Here's a quick description of the relevant columns in our dataset:
 `CLIMATE.CATEGORY`: Current climate where the outage was reported <br><br>
 `OUTAGE.START.DATE`: Date when the outage was reported <br><br>
 `OUTAGE.START.TIME`: Time when the outage was reported <br><br>
-
-Our goal while exploring this dataset is to better understand the factors that may be affecting how long these power outages last. As this dataset contains information about a lot of major power outages, it can provide us with a substantial amount of relative insight about what factors influence the likeliness and duration of these outages. These results can then be distributed to the relevant authorities in order to take precautionary steps to prevent futher events from happening alongside shortening the impact and duration. In the ever rising digital world, such insights have the potnetial to significantly impact the quality of life of US citizens by ensuring that they have constant access to power.
-
-For this study, we will focus on answering the following question:
-
-`Do power outages have a specific pattern? Do charactersitics like day of the week, time of the day, regions, electricity price, and outage causes have a correlation with the duration of the power outage`
 
 ## **Cleaning and EDA**
 
