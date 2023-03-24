@@ -285,7 +285,7 @@ Let's also look at the f-1 score distribution for our final model on training da
 
 <iframe src='Plots/final_model_f1_dist_train.html' width=800 height=320 frameBorder=0></iframe>
 
-The median F-1 score for our model is 0.8121542599123409, which is a significant improvement from our baseline model. The distribution of F-1 scores is also much more tightly clustered around the median, indicating that the model is more consistent and less likely to overfit.
+The median F-1 score for our model is 0.8121542599123409, which is a significant improvement from our baseline model. The distribution of F-1 scores is also much more tightly clustered around the median, indicating that the model is more consistent and less likely to overfit. By adding more information to our model, we believe has helped in improving its performance. Additionally, we have also been able to reduce the overfitting of our model by finetuning the model using the GridSearch method. Combining these two methods our final model constintentely performs better than our baseline model.
 
 The difference between the median F-1 scores for training and test data is 0.0645304816198698, which is a small difference. This indicates that the model is not overfitting to the training data.
 
