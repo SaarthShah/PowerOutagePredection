@@ -233,3 +233,31 @@ After doing some quick testing, we found that the best hyperparameters for the R
 
 <img src='Plots/hyperparams.png'>
 
+### **Grid Search results**
+
+We see that, based on out grid search results, our initial hyperparameters were not ideal. We were using default parameters for all our steps in the pipeline. Now, we have a better idea of what hyperparamters to use in our model to potentially improve performance. 
+
+Running GridSearchCV on the training data we found that the best hyperparameters for the Random Forest Classifier are:
+
+<img src='Plots/best_params_cv.png'>
+
+## **Tuned Model Testing**
+
+Testing the tuned final model on the training data:
+
+F1 Score: 0.8059009226262498
+
+<iframe src='Plots/tuned_model_train.html' width=800 height=320 frameBorder=0></iframe>
+
+
+Testing the tuned final model on the unseen test data:
+
+F1 Score: 0.7615588576406965
+
+<iframe src='Plots/tuned_model_test.html' width=800 height=320 frameBorder=0></iframe>
+
+Looking at the f-1 scores we can see that our model perfoms equally well on both training and test data. We have been able to make a significant improvement from our baseline model. As the model performs only slightly better on training than the test data, we can see that it is not significantly overfitting.
+
+### **F-1 Score Visualization**
+
+We can now collect F-1 score data on our final, improved model using different splits of our data. We can see if average performance lives up to our post-GridSearchCV performance. This will let us know if there was truly an improvement in model performance or not
