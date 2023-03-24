@@ -171,133 +171,38 @@ Below is the different cause categories in our data for reference:
 
 <img src='Plots/cause_dist.png'>
 
-### **NMAR Analysis**
+### **Feature Engineering**
 
-The `OUTAGE.RESTORATION` column, which is an aggregation of the `OUTAGE.RESTORATION.DATE` and `OUTAGE.RESTORATION.TIME` columns from the original dataset, is potentially **NMAR**, or not missing at random. The `OUTAGE.RESTORATION` column contains information about when the power was restored and the outage, resolved. It is possible that this column has missing values because the record-keeper for the power outage data may have been sick or on leave on the day of the restoration. This could make the column **NMAR** and not MCAR because the `OUTAGE.RESTORATION` column would not be random and, additionally, also be dependent on an external variable, i.e., the presence of the record-keeper for the power outages. If we had data on the presence of the record-keeper on the day of restoration, then we would be able to conclude whether the variable    `OUTAGE.RESTORATION` is MAR (Missing at random).
+We can apply a StandardScaler() to the TOTAL.PRICE column in order to reduce the impact of outlying prices.
 
-### **Missingness Dependency**
+We can apply a QuantileTransformer() to the PCT_LAND, PCT_WATER_INLAND, AREAPCT_UC and TOTAL.CUSTOMERS columns to essentially classify outages based on the level of each variable. These variables are valid for this transformation because they have a lot of unnecessary detail. Instead of emphasizing the value itself, we can classify the values and potentially improve overall classification and prevent any potential overfitting.
 
-#### 1. Why TVD for checking Missingness?
-**TVD (Total Variation Distance)** is a test statistic that is used to compare categorical distributions of a specific variable. For missingness, when we split our data into two sets based on whether data in a certain column is missing, we look at the categorical distributions of the other columns to see if there is any significant difference. For instance, below, we explore the missingness of `CUSTOMERS.AFFECTED` in relation to the columns `CLIMATE.CATEGORY` and `U.S._STATES`. Both these columns are used to classify data and, hence, are categorical. For this reason, we used TVD as our test statistic in our missingness analysis.
+The Standard Scaler converts the data to a normal distribution with a mean of 0 and a standard deviation of 1. The Quantile Transformer converts the data to a uniform distribution with a mean of 0 and a standard deviation of 1. The Quantile Transformer is a non-linear transformation that is robust to outliers.
 
-#### 2. Identifying a column with potentially MAR data
-Our column for `CUSTOMERS.AFFECTED` seems to be missing some values. However, this column does not seem to be missing values due to Design (MD) and contains both extremely large and small values (0 to 3241437 people). In this section, we test whether the missingness of customers affected depends on another column or not.
+To apply the transformations, we dropped the columns that we did not want to transform. Here's what the dataframe that we passed into the model looks like:
 
-- **`CLIMATE.CATEGORY` column**<br>
+<iframe src='Plots/final_model_df.html' width=800 height=320 frameBorder=0></iframe>
 
-First let's test if the missingess of the `CUSTOMERS.AFFECTED` value depends on the climate of the place where the power outage was recorded. For this, we will first draw a simple plot to check if there is a visual difference between the null and non-null distribution values of `CLIMATE.CATEGORY`
+**Model Fitting**
 
-<iframe src="Plots/permplot1.html" width=800 height=600 frameBorder=0></iframe>
+To train and test our model, we will be using the standard 75-25 test-train split where 75% of data is used for training and 25% is used for testing.
 
-In this chart, the distribution between the null and non-null values seem to be fairly similar. We can further investigate by conducting a permuation test to check if this difference in distribution was purely due to chance or if the `CLIMATE.CATEGORY` has a correlation with the missingnes of `CUSTOMERS.AFFECTED`.
+Here's how our fitted model looks like:
 
-**Permutation Test Results:**
+<img src='Plots/fittedfinal.png'>
 
-Observed TVD = 0.03 <br>
-P-value = 0.592 <br>
-Signficance level (alpha) = 5% <br>
+** Engineered Model Testing **
 
-<iframe src="Plots/permplot2.html" width=800 height=600 frameBorder=0></iframe>
+Testing the untuned final model on the training data:
 
-Our p-value of 0.592 is much bigger than our significance interval of 5%, therefore we do not have enough evidence to reject the null hypothesis. Based on this we cannot conclude that the missingness of the `CUSTOMERS.AFFECTED` values depends on the `CLIMATE.CATEGORY` column.
+F1 Score: 0.9991170653185345
 
-Therefore we **cannot say** that missingness of the `CUSTOMERS.AFFECTED` values is **Missing at Random** due to its correlation with the `CLIMATE.CATEGORY` column.
+<iframe src='Plots/final_untuned_train.html' width=800 height=320 frameBorder=0></iframe>
 
-- **`U.S._STATES` column** <br>
+The model appears to be performing very well on the test data, with high numbers of true positives across most classes and relatively few false positives and false negatives. The F1 score of 0.999 is a measure of the overall performance of the model, taking into account both precision and recall, and indicates that the model is able to achieve high accuracy while minimizing false positives and false negatives.
 
-Now, let's test if the missingess of the `CUSTOMERS.AFFECTED` value depends on the US State where the power outage was recorded. For this, we will first draw a simple plot to check if there is a visual difference between the null and non-null distribution values of `U.S._STATE`.
+Testing the untuned final model on the unseen test data:
 
-<iframe src="Plots/permplot3.html" width=800 height=600 frameBorder=0></iframe>
+F1 Score: 0.7115392093891811
 
-There seems to be a significant difference in values in the null and non-null distributions of the `CUSTOMERS.AFFECTED` values. We can further investigate by conducting a permuation test to check if this difference in distribution was purely due to chance or if the `CUSTOMERS.AFFECTED` has a correlation with the missingnes of `U.S._STATES`.
-
-**Permutation Test Results:**
-
-Observed TVD = 0.37 <br>
-P-value = 0.0 <br>
-Significance level (alpha) = 5% <br>
-
-<iframe src="Plots/permplot4.html" width=800 height=600 frameBorder=0></iframe>
-
-As the p-value is 0 which is less than our 5% confidence level, we have **sufficient evidence** to reject the null hypothesis and **state** that the missingness of the `CUSTOMERS.AFFECTED` column is **MAR** by The `U.S._STATE` column.
-
-## **Hypothesis Testing**
-
-We can now test some hypotheses. Below is a function that takes in a column name and compares category-wise outage medians to the overall population outage median.
-
-Note: We choose the median as our test statistic here because the overall duration distribution is skewed right, so the mean value will be biased by potential outliers.
-
-#### **Outage Cause**
-Firstly, we want to compare the median outage duration of each class in the CAUSE.CATEGORY column to the overall population median.
-
-Null Hypothesis: The median duration of each class in the `CAUSE.CATEGORY` column is equal to the overall population median.
-Alternative Hypothesis: The median duration of each class in the `CAUSE.CATEGORY` column is not equal to the overall population median.
-
-Below is a dataframe that summarizes the results of hypothesis tests done to compare individual median categorical durations to the overall median duration.
-
-|    | Category                      | H0     | H1     |   Observed Median |   P-value | Reject   |
-|---:|:------------------------------|:-------|:-------|------------------:|----------:|:---------|
-|  0 | equipment failure             | m = m0 | m < m1 |             221   |    0.0088 | True     |
-|  1 | fuel supply emergency         | m = m0 | m > m1 |            3960   |    0      | True     |
-|  2 | intentional attack            | m = m0 | m < m1 |              56   |    0      | True     |
-|  3 | islanding                     | m = m0 | m < m1 |              77.5 |    0      | True     |
-|  4 | public appeal                 | m = m0 | m < m1 |             455   |    0.2416 | False    |
-|  5 | severe weather                | m = m0 | m > m1 |            2460   |    0      | True     |
-|  6 | system operability disruption | m = m0 | m < m1 |             215   |    0.0001 | True     |
-
-Here is a bar chart comparing the medians of each of the groups:
-<iframe src="Plots/hypplot0.html" width=800 height=600 frameBorder=0></iframe>
-
-Analysis: Based on our hypothesis tests, it seems likely that the median duration of outages is less than the overall median duration for outages caused by equipment failures, intentional attacks, islanding, or system operability disruptions. Furthermore, the median duration is likely greater than the overall median duration for outages caused by fuel supply emergencies or severe weather. It is likely that outages caused by severe weather take longer to resolve because the restoration team is less in control of factors influenced majorly by nature, like weather.
-
-#### **Day of the Week**
-We can also compare the median outage duration of each class in the DAY_OF_WEEK column to the overall population median.
-
-Null Hypothesis: The median duration of each class in the `DAY_OF_WEEK` column is equal to the overall population median.
-Alternative Hypothesis: The median duration of each class in the `DAY_OF_WEEK` column is not equal to the overall population median.
-
-Below is a dataframe that summarizes the results of hypothesis tests done to compare individual median categorical durations to the overall median duration.
-
-
-|    |   Category | H0     | H1     |   Observed Median |   P-value | Reject   | Day_of_the_Week   |
-|---:|-----------:|:-------|:-------|------------------:|----------:|:---------|:------------------|
-|  0 |          0 | m = m0 | m < m1 |             430   |    0.0362 | True     | Monday            |
-|  1 |          1 | m = m0 | m < m1 |             420   |    0.0274 | True     | Tuesday           |
-|  2 |          2 | m = m0 | m < m1 |             510   |    0.1529 | False    | Wednesday         |
-|  3 |          3 | m = m0 | m < m1 |             550   |    0.2022 | False    | Thursday          |
-|  4 |          4 | m = m0 | m > m1 |             763.5 |    0.3945 | False    | Friday            |
-|  5 |          5 | m = m0 | m > m1 |            1847.5 |    0      | True     | Saturday          |
-|  6 |          6 | m = m0 | m > m1 |            1080   |    0.0594 | False    | Sunday            |
-
-Here is a bar chart comparing the medians of each of the groups:
-
-<iframe src="Plots/hypplot1.html" width=800 height=600 frameBorder=0></iframe>
-
-Analysis: Based on our hypothesis tests, it seems likely that the median duration of time for which there is an outage is lesser than the overall median outage duration on Mondays and Tuesdays. On the other hand, on Saturdays, the median outage duration is likely longer than the population median. This could potentially mean that restoration teams in the US work faster than the median speed of work to resolve power outages on Mondays and Tuesdays, and the same teams likely work slower on Saturdays.
-
-### **A more focused hypothesis test**
-​
-We see that there are some interesting trends in the duration of the outages based on the day of the week. We can study these further by formulating another hypothesis test that checks to see if there is a significant difference between the median duration of outages on weekends and that of those on weekdays. More specifically, we can check to see if restoration takes more time if the outage begins on a weekend. Here are our hypotheses:
-​
-H0: There is no difference between the median duration of outages over weekends and the median duration of outages over weekdays.
-​
-H1: The median duration of outages over weekends is greater than the median duration of outages over weekdays.
-​
-In order to do this, we can run a permutation test with the test statistic as the signed difference between the median duration of outages for weekends and the median duration of outages for weekdays. Since our test is directional, it makes sense to not use the absolute difference between the two group medians as our statistic.
-
-**Results:**
-
-Observed Difference = 1035.0 <br>
-P-value = 0.0 <br>
-Significance level (alpha) = 5% <br>
-
-<iframe src="Plots/hypplot2.html" width=800 height=600 frameBorder=0></iframe>
-
-Conclusion: Based on the plot and our P-value of 0.0, at a significance level of 5%, we can reject the null hypothesis in favor of the alternative hypothesis. The median duration of outages over the weekend does seem to be greater than the median duration of outages over the weekdays. However, there could be **other confounding factors** that may be causing this difference.One possible explanation is that it is likely that restoration teams either don't work at all on weekends (delaying the restoration by days) or they just don't work as much on weekends as they do on weekends.
-
-Our hypothesis test helps provide insight into our original question. Now that we know that our power outage median is higher on the weekends, it can provide insight to the relevant stakeholders on how to improve the restoration process. For example, if the restoration team is not working on weekends, then the stakeholders can try to convince the team to work on weekends. If the team is working on weekends, but not as much as they do on weekdays, then the stakeholders can try to convince the team to work more on weekends. This can help improve the restoration process and reduce the median duration of outages.
-
-
-
-
-
+<iframe src='Plots/final_untuned_test.html' width=800 height=320 frameBorder=0></iframe>
