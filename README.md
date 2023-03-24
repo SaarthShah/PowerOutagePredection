@@ -302,8 +302,9 @@ Running a permutation test on these values we get a p_value of 0.39 which is not
 
 For the permutation test, we will use the precision score as our metric. We will use the precision score because it is a better metric for our scenario. We want to minimize false positives, and precision score is a better metric for that. We will also use the median as our threshold value for classifying outages as either long or short.
 
-<iframe= src='Plots/perm_test_res.html' width=800 height=320 frameBorder=0></iframe>
-
 ### Conclusion
 
 The P-value of the permutation test is not significant enough at alpha level 0.05 to reject the null hypothesis in favor of the alternative. In conclusion, our model shows there is no significant difference in performance between long- and short-duration outage groups. This means that the cause category is predicted signficantly eqaully for outages of longer durations. Our model is equally good at predicting the cause of outages that last longer. However, Outages of longer durations tend to be more significant, so being able to predict the cause with more precision may haved helped decrease response time and also increase preparedness for the more catastrophic outages. Furthermore, precision score is an important metric because it is better have a model with higher precision in scenarios as such. False Positives need to be weighed more because we cannot create unneccessary distress for the public. Panicking about a cause that has been predicted incorrectly will only deter progress and delay restoration efforts.
+
+
+<iframe src='Plots/perm_test_res.html' width=800 height=320 frameBorder=0></iframe>
