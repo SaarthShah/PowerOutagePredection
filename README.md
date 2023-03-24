@@ -207,6 +207,15 @@ F1 Score: 0.7115392093891811
 
 <iframe src='Plots/final_untuned_test.html' width=800 height=320 frameBorder=0></iframe>
 
+### Searching for the better Classifier
+
+In the process, we decided to check if our model would perform any better using a different classifier, so we tested
+a seperate classifier called the Support Vector Classification which is also a very popular classifier used for predective analysis. Documentation can be found here: https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html <br><br>
+Here's how it perfomed:
+<img src='Plots/svc.png'>
+
+Even after manually trying to tune the SVC model with different combinations of hyperparameters, we found that our RandomForestClassifier consistently performed better and hence we decided to stick with it.
+
 ### **Analysis of performance**
 
 Our new model with the additional features and feature engineering seems to be doing only slightly better on test data. An F-1 score of 71% is an improvement, nevertheless. 
