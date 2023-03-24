@@ -260,4 +260,19 @@ Looking at the f-1 scores we can see that our model perfoms equally well on both
 
 ### **F-1 Score Visualization**
 
-We can now collect F-1 score data on our final, improved model using different splits of our data. We can see if average performance lives up to our post-GridSearchCV performance. This will let us know if there was truly an improvement in model performance or not
+We can now collect F-1 score data on our final, improved model using different splits of our data. We can see if average performance lives up to our post-GridSearchCV performance. This will let us know if there was truly an improvement in model performance or not.
+
+<iframe src='Plots/final_model_f1_dist_test.html' width=800 height=320 frameBorder=0></iframe>
+
+The median F-1 score for our model is 0.7476237782924711, which is a significant improvement from our baseline model. The distribution of F-1 scores is also much more tightly clustered around the median, indicating that the model is more consistent and less likely to overfit.
+
+Let's also look at the f-1 score distribution for our final model on training data:
+
+<iframe src='Plots/final_model_f1_dist_train.html' width=800 height=320 frameBorder=0></iframe>
+
+The median F-1 score for our model is 0.8121542599123409, which is a significant improvement from our baseline model. The distribution of F-1 scores is also much more tightly clustered around the median, indicating that the model is more consistent and less likely to overfit.
+
+The difference between the median F-1 scores for training and test data is 0.0645304816198698, which is a small difference. This indicates that the model is not overfitting to the training data.
+
+
+
