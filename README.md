@@ -183,7 +183,7 @@ To apply the transformations, we dropped the columns that we did not want to tra
 
 <iframe src='Plots/final_model_df.html' width=800 height=320 frameBorder=0></iframe>
 
-**Model Fitting**
+### **Model Fitting**
 
 To train and test our model, we will be using the standard 75-25 test-train split where 75% of data is used for training and 25% is used for testing.
 
@@ -191,7 +191,7 @@ Here's how our fitted model looks like:
 
 <img src='Plots/fittedfinal.png'>
 
-** Engineered Model Testing **
+## **Untuned Model Testing**
 
 Testing the untuned final model on the training data:
 
@@ -206,3 +206,30 @@ Testing the untuned final model on the unseen test data:
 F1 Score: 0.7115392093891811
 
 <iframe src='Plots/final_untuned_test.html' width=800 height=320 frameBorder=0></iframe>
+
+### **Analysis of performance**
+
+Our new model with the additional features and feature engineering seems to be doing only slightly better on test data. An F-1 score of 71% is an improvement, nevertheless. 
+
+We can do better by tuning the hyperparameters 🎛️
+
+Here's a list of potential hyper parameters that we have identified to tune our model:
+
+1. Random Forest 'n_estimators':- This hyperparameter controls the number of decision trees in the random forest. Increasing the number of trees can improve the model's accuracy, but it can also increase the model's computational cost. The given range of values is reasonable to try out different values and see the model's performance.
+
+2. Random Forest 'max_depth': This hyperparameter controls the maximum depth of the decision trees. A shallow tree is less likely to overfit, but it might not capture all the patterns in the data. A deep tree is more likely to overfit, but it can capture more complex patterns. The 'None' option means that there is no maximum depth limit, which can lead to overfitting.
+
+3. Random Forest 'criterion': This hyperparameter controls the quality of the split in each decision tree. Gini impurity and entropy are two common measures of impurity used in decision trees. Gini impurity tends to be faster to compute, while entropy tends to create more balanced splits.
+
+4. Random Forest 'max_features': This hyperparameter controls the number of features considered for each split in the decision trees. 'sqrt' means the square root of the number of features, while 'log2' means the logarithm of the number of features. A lower number of features can reduce the model's complexity and overfitting, but it can also decrease the model's accuracy. Again, trying both options is a reasonable approach.
+
+5. Quantile Transformer 'n_quantiles': These hyperparameters are specific to the feature engineering pipeline and control the number of quantiles used to break down the continuous variables 'land' and 'area'. The range of values given is reasonable, and the final choice would depend on the distribution of the variables and the resulting performance of the model.
+
+6. Random Forest 'min_samples_split': This hyperparameter controls the minimum number of samples required to split an internal node in the decision trees. A higher number can reduce the model's complexity and overfitting, but it can also decrease the model's accuracy. The given range of values is reasonable, and the final choice would depend on the size and complexity of the dataset.
+
+Let's run a Grid Search with a 5-fold cross validation to find the best performing hyperparamters and then test our model out again.
+
+After doing some quick testing, we found that the best hyperparameters for the Random Forest Classifier are:
+
+<img src='Plots/hyperparams.png'>
+
