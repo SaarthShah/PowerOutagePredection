@@ -274,5 +274,36 @@ The median F-1 score for our model is 0.8121542599123409, which is a significant
 
 The difference between the median F-1 scores for training and test data is 0.0645304816198698, which is a small difference. This indicates that the model is not overfitting to the training data.
 
+## **Fairness Analysis**
 
+We can run a fairness analysis to test whether our model performs better on outages with longer durations as opposed to those with shorter durations. This is a possibility because outages of longer duration have more significant causes, and factors like YEAR and CLIMATE.CATEGORY may provide the model with more valuable information pertaining to outages that last longer.
 
+How would be split our data based on duration? What threshold value defines the difference between a long and a short outage?
+
+We need to establish a duration threshold value to classify our outage instances as either long or short. For this, we can first visualize our data for durations using a histogram.
+
+<iframe src='Plots/outage_dur_dist.html' width=800 height=320 frameBorder=0></iframe>
+
+The distribution of values seems to be heavily skewed right. We can pick the median as the threshold value because the median coincides with about half a day. Power outages are generally resolved in a matter of hours, so it is fair to assume that any outages shorter than half a day are considered as short.
+
+We can run a permutation test to test our model's fairness with the following hypotheses:
+
+<b>H0:</b> There is no difference in model precision for short outages and long outages.
+
+<b>H1:</b> Short outages have a better model precision than long outages.
+
+### **Permutation Test**
+
+Test Statistic: difference in precision score between short and long outages
+
+After Binarizing our columns and calculating the precision score for each group, we can see that the precision score the difference between the precision score of the two groups is -0.021535717324430492.
+
+Running a permutation test on these values we get a p_value of 0.39 which is not significant enough to reject the null hypothesis. 
+
+For the permutation test, we will use the precision score as our metric. We will use the precision score because it is a better metric for our scenario. We want to minimize false positives, and precision score is a better metric for that. We will also use the median as our threshold value for classifying outages as either long or short.
+
+<iframe= src='Plots/perm_test_res.html' width=800 height=320 frameBorder=0></iframe>
+
+### Conclusion
+
+The P-value of the permutation test is not significant enough at alpha level 0.05 to reject the null hypothesis in favor of the alternative. In conclusion, our model shows there is no significant difference in performance between long- and short-duration outage groups. This means that the cause category is predicted signficantly eqaully for outages of longer durations. Our model is equally good at predicting the cause of outages that last longer. However, Outages of longer durations tend to be more significant, so being able to predict the cause with more precision may haved helped decrease response time and also increase preparedness for the more catastrophic outages. Furthermore, precision score is an important metric because it is better have a model with higher precision in scenarios as such. False Positives need to be weighed more because we cannot create unneccessary distress for the public. Panicking about a cause that has been predicted incorrectly will only deter progress and delay restoration efforts.
