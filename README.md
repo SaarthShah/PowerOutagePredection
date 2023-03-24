@@ -191,7 +191,7 @@ Here's how our fitted model looks like:
 
 <img src='Plots/fittedfinal.png'>
 
-## **Untuned Model Testing**
+### **Untuned Model Testing**
 
 Testing the untuned final model on the training data:
 
@@ -252,7 +252,7 @@ Running GridSearchCV on the training data we found that the best hyperparameters
 
 <img src='Plots/best_params_cv.png'>
 
-## **Tuned Model Testing**
+### **Tuned Model Testing**
 
 Testing the tuned final model on the training data:
 
