@@ -236,6 +236,8 @@ Here's a list of potential hyper parameters that we have identified to tune our 
 
 6. Random Forest 'min_samples_split': This hyperparameter controls the minimum number of samples required to split an internal node in the decision trees. A higher number can reduce the model's complexity and overfitting, but it can also decrease the model's accuracy. The given range of values is reasonable, and the final choice would depend on the size and complexity of the dataset.
 
+To tune our model we used GridSearchCV to find the best hyperparameters for our model. It allows us to define a range of hyperparameters and their possible values, and then performs a search across all possible combinations of these values to find the best combination that maximizes the model's performance. By automating this process, GridSearchCV saved us time and effort in finding the optimal hyperparameters manually for your model. It does it by maintaining accuracy while reducing overfitting and underfitting. <br>
+
 Let's run a Grid Search with a 5-fold cross validation to find the best performing hyperparamters and then test our model out again.
 
 After doing some quick testing, we found that the best hyperparameters for the Random Forest Classifier are:
@@ -266,6 +268,10 @@ F1 Score: 0.7615588576406965
 <iframe src='Plots/tuned_model_test.html' width=800 height=320 frameBorder=0></iframe>
 
 Looking at the f-1 scores we can see that our model perfoms equally well on both training and test data. We have been able to make a significant improvement from our baseline model. As the model performs only slightly better on training than the test data, we can see that it is not significantly overfitting.
+
+Analyzing the performance of the model from the perspective of the Data Generating Process, we believe that the likelihood of certain outage causes are dependent on certain days of the week or at certain times of the day. Additionally, the state's geographic conditions, such as inland water area or level of urbanization, would likely influence the likelihood of certain outage causes. Furthermore, higher prices or greater numbers of customers in a state could lead to specific outage causes, such as intentional attacks or system operability disruptions.
+
+However, this is just our intuitive guess and we have to actually test each feature more thoroughly to make any conclusions.
 
 ### **F-1 Score Visualization**
 
